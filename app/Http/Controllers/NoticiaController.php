@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoticiaRequest;
 use App\Noticia;
 use App\Categoria;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class NoticiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiaRequest $request)
     {
         $request->validate([
             'titulo' => 'required|string',
@@ -108,7 +109,7 @@ class NoticiaController extends Controller
      * @param  \App\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noticia $noticia)
+    public function update(NoticiaRequest $request, Noticia $noticia)
     {
         $request->validate([
             'titulo' => 'required|string',
