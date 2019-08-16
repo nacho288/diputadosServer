@@ -54,13 +54,9 @@ class NoticiaController extends Controller
             $imagen = "/storage/img/" . $nombre;
         }
 
-        $destacado = true;
-        if ($request->destacado) {
-            $destacado = true;
-        } else {
-            $destacado = false;
-        }
-        $id = DB::table('noticias')->insertGetId([
+        $destacado = $request->destacado;
+
+        $noticia = Noticia::create([
             'titulo' => $request->titulo,
             'extracto' => $request->extracto,
             'cuerpo' => $request->cuerpo,
@@ -71,8 +67,7 @@ class NoticiaController extends Controller
             'destacado' => $destacado,
         ]);
 
-        $reg = Noticia::find($id);
-        $reg->categorias()->attach($request->categoria);
+        $noticia->categorias()->attach($request->categoria);
 
         return view('pages.noticias.result');
     }

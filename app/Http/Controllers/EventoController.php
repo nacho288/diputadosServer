@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use App\Categoria;
+use App\Http\Requests\EventoRequest;
 use Illuminate\Http\Request;
 use DB;
 
@@ -36,7 +37,7 @@ class EventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventoRequest $request)
     {
         $request->validate([
             'titulo' => 'required|string',
@@ -53,13 +54,9 @@ class EventoController extends Controller
             $imagen = "/storage/img/" . $nombre;
         }
 
-        $destacado = true;
-        if ($request->destacado) {
-            $destacado = true;
-        } else {
-            $destacado = false;
-        }
-        $id = DB::table('eventos')->insertGetId([
+        $destacado = $request->destacado;
+
+        $evento = Evento::create([
             'titulo' => $request->titulo,
             'extracto' => $request->extracto,
             'cuerpo' => $request->cuerpo,
@@ -70,8 +67,7 @@ class EventoController extends Controller
             'destacado' => $destacado,
         ]);
 
-        $reg = Evento::find($id);
-        $reg->categorias()->attach($request->categoria);
+        $evento->categorias()->attach($request->categoria);
 
         return view('pages.eventos.result');
     }
@@ -108,7 +104,7 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(EventoRequest $request, Evento $evento)
     {
         $request->validate([
             'titulo' => 'required|string',
