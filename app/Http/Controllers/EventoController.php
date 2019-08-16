@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\evento;
-use App\categoria;
+use App\Categoria;
 use Illuminate\Http\Request;
 use DB;
 
@@ -27,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view('layouts.eventos.create')->with('categorias', categoria::all());
+        return view('layouts.eventos.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -97,7 +97,7 @@ class EventoController extends Controller
     {
         return view('layouts.eventos.edit')->with("pack", [
             'evento' => $evento,
-            'categorias' => categoria::all()
+            'categorias' => Categoria::all()
         ]);
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\categoria;
+use App\Categoria;
 use App\Http\Requests\CategoriaRequest;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('layouts.categorias.index')->with('categorias', categoria::all());
+        return view('layouts.categorias.index')->with('categorias', Categoria::all());
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoriaController extends Controller
      */
     public function store(CategoriaRequest $request)
     {
-        $categoria = new categoria();
+        $categoria = new Categoria();
         $categoria->nombre = $request->nombre;
         $categoria->save();
 
@@ -46,10 +46,10 @@ class CategoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\categoria  $categoria
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(categoria $categoria)
+    public function show(Categoria $categoria)
     {
         //
     }
@@ -57,10 +57,10 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\categoria  $categoria
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(categoria $categoria)
+    public function edit(Categoria $categoria)
     {
         return view('layouts.categorias.edit')->with('categoria', $categoria);
     }
@@ -69,10 +69,10 @@ class CategoriaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\categoria  $categoria
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoriaRequest $request, categoria $categoria)
+    public function update(CategoriaRequest $request, Categoria $categoria)
     {
         $categoria->update($request->all());
 
@@ -82,10 +82,10 @@ class CategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\categoria  $categoria
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(categoria $categoria)
+    public function destroy(Categoria $categoria)
     {
         //
     }

@@ -8,6 +8,6 @@ class noticia extends Model
 {
     public function categorias()
     {
-        return $this->morphToMany(categoria::class, 'categorizable');
+        return $this->morphToMany(Categoria::class, 'categorizable');
     }
 }

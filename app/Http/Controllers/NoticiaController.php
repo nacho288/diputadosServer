@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\noticia;
-use App\categoria;
+use App\Categoria;
 use Illuminate\Http\Request;
 use DB;
 
@@ -27,7 +27,7 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        return view('layouts.noticias.create')->with('categorias', categoria::all());
+        return view('layouts.noticias.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -97,7 +97,7 @@ class NoticiaController extends Controller
     {
         return view('layouts.noticias.edit')->with( "pack" ,[
             'noticia' => $noticia,
-            'categorias' => categoria::all()
+            'categorias' => Categoria::all()
         ]);
     }
 
