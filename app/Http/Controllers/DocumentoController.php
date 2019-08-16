@@ -16,7 +16,7 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        return view('layouts.documentos.index')->with('documentos', Documento::all());
+        return view('pages.documentos.index')->with('documentos', Documento::all());
     }
 
     /**
@@ -26,7 +26,7 @@ class DocumentoController extends Controller
      */
     public function create()
     {
-        return view('layouts.documentos.create');
+        return view('pages.documentos.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class DocumentoController extends Controller
 
         // php artisan storage:link
 
-        return view('layouts.documentos.result');
+        return view('pages.documentos.result');
     }
 
     /**
@@ -67,7 +67,7 @@ class DocumentoController extends Controller
      */
     public function show(Documento $documento)
     {
-        return view('layouts.documentos.show')->with('documento', $documento);
+        return view('pages.documentos.show')->with('documento', $documento);
     }
 
     /**
@@ -78,7 +78,7 @@ class DocumentoController extends Controller
      */
     public function edit(Documento $documento)
     {
-        return view('layouts.documentos.edit')->with('documento', $documento);
+        return view('pages.documentos.edit')->with('documento', $documento);
     }
 
     /**
@@ -105,7 +105,7 @@ class DocumentoController extends Controller
         $documento->descripcion = $request->descripcion;
         $documento->save();
 
-        return view('layouts.documentos.result');
+        return view('pages.documentos.result');
     }
 
     /**

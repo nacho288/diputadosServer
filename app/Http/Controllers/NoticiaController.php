@@ -17,7 +17,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return view('layouts.noticias.index')->with('noticias', Noticia::all());
+        return view('pages.noticias.index')->with('noticias', Noticia::all());
     }
 
     /**
@@ -27,7 +27,7 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        return view('layouts.noticias.create')->with('categorias', Categoria::all());
+        return view('pages.noticias.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -73,7 +73,7 @@ class NoticiaController extends Controller
         $reg = Noticia::find($id);
         $reg->categorias()->attach($request->categoria);
 
-        return view('layouts.noticias.result');
+        return view('pages.noticias.result');
     }
 
     /**
@@ -84,7 +84,7 @@ class NoticiaController extends Controller
      */
     public function show(Noticia $noticia)
     {
-        return view('layouts.noticias.show')->with('noticia', $noticia);
+        return view('pages.noticias.show')->with('noticia', $noticia);
     }
 
     /**
@@ -95,7 +95,7 @@ class NoticiaController extends Controller
      */
     public function edit(Noticia $noticia)
     {
-        return view('layouts.noticias.edit')->with( "pack" ,[
+        return view('pages.noticias.edit')->with( "pack" ,[
             'noticia' => $noticia,
             'categorias' => Categoria::all()
         ]);
@@ -148,7 +148,7 @@ class NoticiaController extends Controller
 
         $noticia->save();
 
-        return view('layouts.noticias.result');
+        return view('pages.noticias.result');
     }
 
     /**

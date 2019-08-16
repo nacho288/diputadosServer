@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('layouts.categorias.index', ['categorias' => Categoria::all()]);
+        return view('pages.categorias.index', ['categorias' => Categoria::all()]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('layouts.categorias.create');//
+        return view('pages.categorias.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class CategoriaController extends Controller
         // $categoria = categoria::create($request->all());
         Categoria::create($request->all());
 
-        return  view('layouts.categorias.result');
+        return  view('pages.categorias.result');
     }
 
     /**
@@ -61,7 +61,7 @@ class CategoriaController extends Controller
      */
     public function edit(Categoria $categoria)
     {
-        return view('layouts.categorias.edit', ['categoria' => $categoria]);
+        return view('pages.categorias.edit', ['categoria' => $categoria]);
     }
 
     /**

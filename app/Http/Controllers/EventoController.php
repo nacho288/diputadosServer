@@ -17,7 +17,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('layouts.eventos.index')->with('eventos', Evento::all());
+        return view('pages.eventos.index')->with('eventos', Evento::all());
     }
 
     /**
@@ -27,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view('layouts.eventos.create')->with('categorias', Categoria::all());
+        return view('pages.eventos.create')->with('categorias', Categoria::all());
     }
 
     /**
@@ -73,7 +73,7 @@ class EventoController extends Controller
         $reg = Evento::find($id);
         $reg->categorias()->attach($request->categoria);
 
-        return view('layouts.eventos.result');
+        return view('pages.eventos.result');
     }
 
     /**
@@ -84,7 +84,7 @@ class EventoController extends Controller
      */
     public function show(Evento $evento)
     {
-        return view('layouts.eventos.show')->with('evento', $evento);
+        return view('pages.eventos.show')->with('evento', $evento);
     }
 
     /**
@@ -95,7 +95,7 @@ class EventoController extends Controller
      */
     public function edit(Evento $evento)
     {
-        return view('layouts.eventos.edit')->with("pack", [
+        return view('pages.eventos.edit')->with("pack", [
             'evento' => $evento,
             'categorias' => Categoria::all()
         ]);
@@ -148,7 +148,7 @@ class EventoController extends Controller
 
         $evento->save();
 
-        return view('layouts.eventos.result');
+        return view('pages.eventos.result');
     }
 
     /**

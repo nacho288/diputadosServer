@@ -14,7 +14,7 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return view('layouts.diputados.index')->with('diputados', Diputado::all());
+        return view('pages.diputados.index')->with('diputados', Diputado::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class DiputadoController extends Controller
      */
     public function create()
     {
-        return view('layouts.diputados.create');
+        return view('pages.diputados.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class DiputadoController extends Controller
 
         $diputado->save();
 
-        return  view('layouts.diputados.result');
+        return  view('pages.diputados.result');
     }
 
     /**
@@ -81,7 +81,7 @@ class DiputadoController extends Controller
      */
     public function show(Diputado $diputado)
     {
-        return view('layouts.diputados.show')->with('diputado', $diputado);
+        return view('pages.diputados.show')->with('diputado', $diputado);
     }
 
     /**
@@ -92,7 +92,7 @@ class DiputadoController extends Controller
      */
     public function edit(Diputado $diputado)
     {
-        return view('layouts.diputados.edit')->with('diputado', $diputado);
+        return view('pages.diputados.edit')->with('diputado', $diputado);
     }
 
     /**
@@ -117,7 +117,8 @@ class DiputadoController extends Controller
         ]);
 
         $diputado->update($request->all());
-        return view('layouts.diputados.result');
+
+        return view('pages.diputados.result');
 
     }
 
