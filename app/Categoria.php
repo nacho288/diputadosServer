@@ -14,6 +14,6 @@ class Categoria extends Model
     }
     public function eventos()
     {
-        return $this->morphedByMany(evento::class, 'categorizable');
+        return $this->morphedByMany(Evento::class, 'categorizable');
     }
 }

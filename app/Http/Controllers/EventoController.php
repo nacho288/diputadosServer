@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\evento;
+use App\Evento;
 use App\Categoria;
 use Illuminate\Http\Request;
 use DB;
@@ -17,7 +17,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('layouts.eventos.index')->with('eventos', evento::all());
+        return view('layouts.eventos.index')->with('eventos', Evento::all());
     }
 
     /**
@@ -70,7 +70,7 @@ class EventoController extends Controller
             'destacado' => $destacado,
         ]);
 
-        $reg = evento::find($id);
+        $reg = Evento::find($id);
         $reg->categorias()->attach($request->categoria);
 
         return view('layouts.eventos.result');
@@ -79,10 +79,10 @@ class EventoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\evento  $evento
+     * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function show(evento $evento)
+    public function show(Evento $evento)
     {
         return view('layouts.eventos.show')->with('evento', $evento);
     }
@@ -90,10 +90,10 @@ class EventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\evento  $evento
+     * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function edit(evento $evento)
+    public function edit(Evento $evento)
     {
         return view('layouts.eventos.edit')->with("pack", [
             'evento' => $evento,
@@ -105,10 +105,10 @@ class EventoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\evento  $evento
+     * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, evento $evento)
+    public function update(Request $request, Evento $evento)
     {
         $request->validate([
             'titulo' => 'required|string',
@@ -154,10 +154,10 @@ class EventoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\evento  $evento
+     * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(evento $evento)
+    public function destroy(Evento $evento)
     {
         //
     }
