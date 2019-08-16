@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Documento;
+use App\Http\Requests\DocumentoRequest;
 use Illuminate\Http\Request;
 
 
@@ -35,13 +36,8 @@ class DocumentoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocumentoRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required|string',
-            'file' => 'required|file'
-        ]);
-
         $archivo = $request->file('file');
 
         $nombre = "doc-" . time() . '.' . $archivo->getClientOriginalExtension();
@@ -53,8 +49,6 @@ class DocumentoController extends Controller
         $values['url'] = asset("storage/docs/$nombre");
 
         Documento::create($values);
-
-        // php artisan storage:link
 
         return view('pages.documentos.result');
     }
@@ -88,12 +82,8 @@ class DocumentoController extends Controller
      * @param  \App\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Documento $documento)
+    public function update(DocumentoRequest $request, Documento $documento)
     {
-        $request->validate([
-            'nombre' => 'required|string',
-        ]);
-
         if ($request->hasFile('file')) {
             $nombre = "doc-" . time() . '.' . $request->file->getClientOriginalExtension();
             $request->file->storeAs('docs', $nombre);
