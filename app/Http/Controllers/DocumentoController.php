@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\documento;
+use App\Documento;
 use Illuminate\Http\Request;
 
 
@@ -16,7 +16,7 @@ class DocumentoController extends Controller
      */
     public function index()
     {
-        return view('layouts.documentos.index')->with('documentos', documento::all());
+        return view('layouts.documentos.index')->with('documentos', Documento::all());
     }
 
     /**
@@ -52,7 +52,7 @@ class DocumentoController extends Controller
         $values['path'] = storage_path("app/public/docs/$nombre");
         $values['url'] = asset("storage/docs/$nombre");
 
-        documento::create($values);
+        Documento::create($values);
 
         // php artisan storage:link
 
@@ -62,10 +62,10 @@ class DocumentoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\documento  $documento
+     * @param  \App\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function show(documento $documento)
+    public function show(Documento $documento)
     {
         return view('layouts.documentos.show')->with('documento', $documento);
     }
@@ -73,10 +73,10 @@ class DocumentoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\documento  $documento
+     * @param  \App\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function edit(documento $documento)
+    public function edit(Documento $documento)
     {
         return view('layouts.documentos.edit')->with('documento', $documento);
     }
@@ -85,10 +85,10 @@ class DocumentoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\documento  $documento
+     * @param  \App\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, documento $documento)
+    public function update(Request $request, Documento $documento)
     {
         $request->validate([
             'nombre' => 'required|string',
@@ -111,10 +111,10 @@ class DocumentoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\documento  $documento
+     * @param  \App\Documento  $documento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(documento $documento)
+    public function destroy(Documento $documento)
     {
         //
     }
