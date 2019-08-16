@@ -33,7 +33,7 @@ class DocumentoRequest extends FormRequest
                 ];
 
             case 'PUT':
-            case 'PATHC':
+            case 'PATCH':
                 return [
                     'nombre' => 'required|string',
                     'descripcion' => 'nullable|string',
