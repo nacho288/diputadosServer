@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\noticia;
+use App\Noticia;
 use App\Categoria;
 use Illuminate\Http\Request;
 use DB;
@@ -17,7 +17,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return view('layouts.noticias.index')->with('noticias', noticia::all());
+        return view('layouts.noticias.index')->with('noticias', Noticia::all());
     }
 
     /**
@@ -70,7 +70,7 @@ class NoticiaController extends Controller
             'destacado' => $destacado,
         ]);
 
-        $reg = noticia::find($id);
+        $reg = Noticia::find($id);
         $reg->categorias()->attach($request->categoria);
 
         return view('layouts.noticias.result');
@@ -79,10 +79,10 @@ class NoticiaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\noticia  $noticia
+     * @param  \App\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function show(noticia $noticia)
+    public function show(Noticia $noticia)
     {
         return view('layouts.noticias.show')->with('noticia', $noticia);
     }
@@ -90,10 +90,10 @@ class NoticiaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\noticia  $noticia
+     * @param  \App\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function edit(noticia $noticia)
+    public function edit(Noticia $noticia)
     {
         return view('layouts.noticias.edit')->with( "pack" ,[
             'noticia' => $noticia,
@@ -105,10 +105,10 @@ class NoticiaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\noticia  $noticia
+     * @param  \App\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, noticia $noticia)
+    public function update(Request $request, Noticia $noticia)
     {
         $request->validate([
             'titulo' => 'required|string',
@@ -154,10 +154,10 @@ class NoticiaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\noticia  $noticia
+     * @param  \App\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(noticia $noticia)
+    public function destroy(Noticia $noticia)
     {
         //
     }

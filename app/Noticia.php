@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class noticia extends Model
+class Noticia extends Model
 {
     public function categorias()
     {

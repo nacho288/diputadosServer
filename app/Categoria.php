@@ -10,7 +10,7 @@ class Categoria extends Model
 
     public function noticias()
     {
-        return $this->morphedByMany(noticia::class, 'categorizable');
+        return $this->morphedByMany(Noticia::class, 'categorizable');
     }
     public function eventos()
     {
