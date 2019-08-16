@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Diputado;
+use App\Http\Requests\DiputadoRequest;
 use Illuminate\Http\Request;
 
 class DiputadoController extends Controller
@@ -33,7 +34,7 @@ class DiputadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DiputadoRequest $request)
     {
         $request->validate([
             'nombre' => 'required|string',
@@ -102,7 +103,7 @@ class DiputadoController extends Controller
      * @param  \App\Diputado  $diputado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Diputado $diputado)
+    public function update(DiputadoRequest $request, Diputado $diputado)
     {
         $request->validate([
             'nombre' => 'required|string',
