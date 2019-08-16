@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\diputado;
+use App\Diputado;
 use Illuminate\Http\Request;
 
 class DiputadoController extends Controller
@@ -14,7 +14,7 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return view('layouts.diputados.index')->with('diputados', diputado::all());
+        return view('layouts.diputados.index')->with('diputados', Diputado::all());
     }
 
     /**
@@ -47,7 +47,7 @@ class DiputadoController extends Controller
             'departamento' => 'required|string'
         ]);
 
-        $diputado = new diputado();
+        $diputado = new Diputado();
 
         $diputado->nombre = $request->nombre;
         $diputado->apellido = $request->apellido;
@@ -76,10 +76,10 @@ class DiputadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\diputado  $diputado
+     * @param  \App\Diputado  $diputado
      * @return \Illuminate\Http\Response
      */
-    public function show(diputado $diputado)
+    public function show(Diputado $diputado)
     {
         return view('layouts.diputados.show')->with('diputado', $diputado);
     }
@@ -87,10 +87,10 @@ class DiputadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\diputado  $diputado
+     * @param  \App\Diputado  $diputado
      * @return \Illuminate\Http\Response
      */
-    public function edit(diputado $diputado)
+    public function edit(Diputado $diputado)
     {
         return view('layouts.diputados.edit')->with('diputado', $diputado);
     }
@@ -99,10 +99,10 @@ class DiputadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\diputado  $diputado
+     * @param  \App\Diputado  $diputado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, diputado $diputado)
+    public function update(Request $request, Diputado $diputado)
     {
         $request->validate([
             'nombre' => 'required|string',
@@ -124,10 +124,10 @@ class DiputadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\diputado  $diputado
+     * @param  \App\Diputado  $diputado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(diputado $diputado)
+    public function destroy(Diputado $diputado)
     {
         //
     }
