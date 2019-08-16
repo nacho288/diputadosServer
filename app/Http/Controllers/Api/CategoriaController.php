@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\categoria;
 use App\Http\Requests\CategoriaRequest;
@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('layouts.categorias.index', ['categorias' => categoria::all()]);
+        return view('layouts.categorias.index')->with('categorias', categoria::all());
     }
 
     /**
@@ -36,8 +36,9 @@ class CategoriaController extends Controller
      */
     public function store(CategoriaRequest $request)
     {
-        // $categoria = categoria::create($request->all());
-        categoria::create($request->all());
+        $categoria = new categoria();
+        $categoria->nombre = $request->nombre;
+        $categoria->save();
 
         return  view('layouts.categorias.result');
     }
@@ -61,7 +62,7 @@ class CategoriaController extends Controller
      */
     public function edit(categoria $categoria)
     {
-        return view('layouts.categorias.edit', ['categoria' => $categoria]);
+        return view('layouts.categorias.edit')->with('categoria', $categoria);
     }
 
     /**
@@ -69,15 +70,13 @@ class CategoriaController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\categoria  $categoria
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
     public function update(CategoriaRequest $request, categoria $categoria)
     {
-        $categoria
-            ->fill($request->all())
-            ->save();
+        $categoria->update($request->all());
 
-        return redirect()->route('categorias.index');
+        return redirect('/categorias');
     }
 
     /**

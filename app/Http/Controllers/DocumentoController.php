@@ -42,15 +42,19 @@ class DocumentoController extends Controller
             'file' => 'required|file'
         ]);
 
-        $nombre = "doc-" . time() . '.' . $request->file->getClientOriginalExtension();
-        $request->file->storeAs('docs', $nombre);
-        
-        $documento = new documento();
-        $documento->nombre = $request->nombre;
-        $documento->descripcion = $request->descripcion;
-        $documento->path = "/storage/docs/" . $nombre;
-        $documento->url = "/storage/docs/" . $nombre;
-        $documento->save();
+        $archivo = $request->file('file');
+
+        $nombre = "doc-" . time() . '.' . $archivo->getClientOriginalExtension();
+
+        $archivo->storeAs('public/docs', $nombre);
+
+        $values = $request->all();
+        $values['path'] = storage_path("app/public/docs/$nombre");
+        $values['url'] = asset("storage/docs/$nombre");
+
+        documento::create($values);
+
+        // php artisan storage:link
 
         return view('layouts.documentos.result');
     }
@@ -90,7 +94,7 @@ class DocumentoController extends Controller
             'nombre' => 'required|string',
         ]);
 
-        if ($request->file) {
+        if ($request->hasFile('file')) {
             $nombre = "doc-" . time() . '.' . $request->file->getClientOriginalExtension();
             $request->file->storeAs('docs', $nombre);
             $documento->path = "/storage/docs/" . $nombre;

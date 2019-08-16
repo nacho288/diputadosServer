@@ -22,4 +22,6 @@ Route::get('/foo', function () {
     return 'Hello World';
 });
 
-Route::apiResource('categorias', 'CategoriaController');
+Route::namespace('Api')->group(function () {
+    Route::apiResource('categorias', 'CategoriaController')->only(['index', 'show']);
+});

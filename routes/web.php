@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('start');
-})->middleware('auth');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('noticias', 'NoticiaController')->middleware('auth');
-Route::resource('eventos', 'EventoController')->middleware('auth');
-Route::resource('documentos', 'DocumentoController')->middleware('auth');
-Route::resource('diputados', 'DiputadoController')->middleware('auth');
-Route::resource('categorias', 'CategoriaController')->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::view('/', 'start');
+
+    Route::resource('noticias', 'NoticiaController');
+    Route::resource('eventos', 'EventoController');
+    Route::resource('documentos', 'DocumentoController');
+    Route::resource('diputados', 'DiputadoController');
+    Route::resource('categorias', 'CategoriaController');
+});
