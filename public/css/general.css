@@ -1,0 +1,45 @@
+.grey {
+    background-color: #eef0f2;
+}
+
+.navColor {
+  background-color:#38414a;
+ }
+
+.navFont {
+     color: #cdd3d9;
+ }
+
+.navBtn {
+    height: 70px;
+    padding-top: 27px;
+}
+
+ .btn-ripple {
+	overflow: hidden;
+	transition: all ease-in-out .500ms;
+}
+
+.btn-ripple::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 25%;
+	height: 100%;
+	width: 50%;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+	transition: all ease-in-out 500ms;
+	transform: scale(3, 3);
+}
+
+.btn-ripple:active::after {
+	padding: 0;
+	margin: 0;
+	opacity: .2;
+	transition: 0s;
+	transform: scale(0, 0);
+}
