@@ -32,7 +32,7 @@ class NoticiaRequest extends FormRequest
                     'titulo' => 'required|string',
                     'extracto' => 'nullable|string',
                     'cuerpo' => 'required|string',
-                    'imagen' => 'nullable|image',
+                    'file' => 'nullable|image',
                     'desde' => 'required|date',
                     'hasta' => 'required|date|after:desde',
                     'destacado' => 'required|boolean',

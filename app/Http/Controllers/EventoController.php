@@ -39,35 +39,29 @@ class EventoController extends Controller
      */
     public function store(EventoRequest $request)
     {
-        $request->validate([
-            'titulo' => 'required|string',
-            'cuerpo' => 'required|string',
-            'desde' => 'required|date',
-            'hasta' => 'required|date',
-            'categoria' => 'required'
-        ]);
+//        $request->validate([
+//            'categoria' => 'required'
+//        ]);
 
-        $imagen = "";
-        if ($request->file) {
-            $nombre = "img-" . time() . '.' . $request->file->getClientOriginalExtension();
-            $request->file->storeAs('img', $nombre);
-            $imagen = "/storage/img/" . $nombre;
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $nombre = MD5($image) . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $nombre);
+        } else {
+            $image = null;
         }
 
-        $destacado = $request->destacado;
+        $values = $request->all();
 
-        $evento = Evento::create([
-            'titulo' => $request->titulo,
-            'extracto' => $request->extracto,
-            'cuerpo' => $request->cuerpo,
-            'desde' => $request->desde,
-            'hasta' => $request->hasta,
-            'imagen' => $imagen,
-            'url_video' => $request->url_video,
-            'destacado' => $destacado,
-        ]);
+        $values['image'] = $image
+            ? storage_path("app/public/images/$nombre")
+            : null;
 
-        $evento->categorias()->attach($request->categoria);
+        $values['destacado'] = boolval($values['destacado']);
+
+        $evento = Evento::create($values);
+
+//        $evento->categorias()->attach($request->categoria);
 
         return view('pages.eventos.result');
     }
