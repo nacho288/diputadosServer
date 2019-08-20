@@ -6,11 +6,12 @@ use App\Evento;
 use App\Categoria;
 use App\Http\Requests\EventoRequest;
 use Illuminate\Http\Request;
-use DB;
+use App\Traits\FileOrNull;
 
 
 class EventoController extends Controller
 {
+    use FileOrNull;
     /**
      * Display a listing of the resource.
      *
@@ -43,19 +44,9 @@ class EventoController extends Controller
 //            'categoria' => 'required'
 //        ]);
 
-        if ($request->hasFile('file')) {
-            $image = $request->file('file');
-            $nombre = MD5($image) . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/images', $nombre);
-        } else {
-            $image = null;
-        }
-
         $values = $request->all();
 
-        $values['image'] = $image
-            ? storage_path("app/public/images/$nombre")
-            : null;
+        $values['image'] = $this->fileOrNull($request->file('file'));
 
         $values['destacado'] = boolval($values['destacado']);
 
@@ -100,43 +91,21 @@ class EventoController extends Controller
      */
     public function update(EventoRequest $request, Evento $evento)
     {
-        $request->validate([
-            'titulo' => 'required|string',
-            'cuerpo' => 'required|string',
-            'desde' => 'required|date',
-            'hasta' => 'required|date',
-            'categoria' => 'required'
-        ]);
+//        $request->validate([
+//            'categoria' => 'required'
+//        ]);
 
-        $imagen = "";
-        if ($request->file) {
-            $nombre = "img-" . time() . '.' . $request->file->getClientOriginalExtension();
-            $request->file->storeAs('img', $nombre);
-            $imagen = "/storage/img/" . $nombre;
-        } else {
-            $imagen = $evento->imagen;
-        }
+        $values = $request->all();
 
-        $destacado = true;
-        if ($request->has('destacado')) {
-            $destacado = true;
-        } else {
-            $destacado = false;
-        }
+        $values['image'] = $this->fileOrNull($request->file('file'));
 
-        $evento->categorias()->detach();
-        $evento->categorias()->attach($request->categoria);
+        $values['destacado'] = boolval($values['destacado']);
 
-        $evento->titulo = $request->titulo;
-        $evento->extracto = $request->extracto;
-        $evento->cuerpo = $request->cuerpo;
-        $evento->desde = $request->desde;
-        $evento->hasta = $request->hasta;
-        $evento->imagen = $imagen;
-        $evento->url_video = $request->url_video;
-        $evento->destacado = $destacado;
+//        $evento->categorias()->sync($request->categoria);
 
-        $evento->save();
+        $evento
+            ->fill($values)
+            ->save();
 
         return view('pages.eventos.result');
     }

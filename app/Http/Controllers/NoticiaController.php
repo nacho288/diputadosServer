@@ -6,11 +6,12 @@ use App\Http\Requests\NoticiaRequest;
 use App\Noticia;
 use App\Categoria;
 use Illuminate\Http\Request;
-use DB;
+use App\Traits\FileOrNull;
 
 
 class NoticiaController extends Controller
 {
+    use FileOrNull;
     /**
      * Display a listing of the resource.
      *
@@ -39,35 +40,19 @@ class NoticiaController extends Controller
      */
     public function store(NoticiaRequest $request)
     {
-        $request->validate([
-            'titulo' => 'required|string',
-            'cuerpo' => 'required|string',
-            'desde' => 'required|date',
-            'hasta' => 'required|date',
-            'categoria' => 'required'
-        ]);
+//        $request->validate([
+//            'categoria' => 'required'
+//        ]);
 
-        $imagen = "";
-        if ($request->file) {
-            $nombre = "img-" . time() . '.' . $request->file->getClientOriginalExtension();
-            $request->file->storeAs('img', $nombre);
-            $imagen = "/storage/img/" . $nombre;
-        }
+        $values = $request->all();
 
-        $destacado = $request->destacado;
+        $values['image'] = $this->fileOrNull($request->file('file'));
 
-        $noticia = Noticia::create([
-            'titulo' => $request->titulo,
-            'extracto' => $request->extracto,
-            'cuerpo' => $request->cuerpo,
-            'desde' => $request->desde,
-            'hasta' => $request->hasta,
-            'imagen' => $imagen,
-            'url_video' => $request->url_video,
-            'destacado' => $destacado,
-        ]);
+        $values['destacado'] = boolval($values['destacado']);
 
-        $noticia->categorias()->attach($request->categoria);
+        $evento = Noticia::create($values);
+
+//        $evento->categorias()->attach($request->categoria);
 
         return view('pages.noticias.result');
     }
@@ -106,43 +91,21 @@ class NoticiaController extends Controller
      */
     public function update(NoticiaRequest $request, Noticia $noticia)
     {
-        $request->validate([
-            'titulo' => 'required|string',
-            'cuerpo' => 'required|string',
-            'desde' => 'required|date',
-            'hasta' => 'required|date',
-            'categoria' => 'required'
-        ]);
+//        $request->validate([
+//            'categoria' => 'required'
+//        ]);
 
-        $imagen = "";
-        if ($request->file) {
-            $nombre = "img-" . time() . '.' . $request->file->getClientOriginalExtension();
-            $request->file->storeAs('img', $nombre);
-            $imagen = "/storage/img/" . $nombre;
-        } else {
-            $imagen = $noticia->imagen;
-        }
+        $values = $request->all();
 
-        $destacado = true;
-        if ($request->has('destacado')) {
-            $destacado = true;
-        } else {
-            $destacado = false;
-        }
+        $values['image'] = $this->fileOrNull($request->file('file'));
 
-        $noticia->categorias()->detach();
-        $noticia->categorias()->attach($request->categoria);
+        $values['destacado'] = boolval($values['destacado']);
 
-        $noticia->titulo = $request->titulo;
-        $noticia->extracto = $request->extracto;
-        $noticia->cuerpo = $request->cuerpo;
-        $noticia->desde = $request->desde;
-        $noticia->hasta = $request->hasta;
-        $noticia->imagen = $imagen;
-        $noticia->url_video = $request->url_video;
-        $noticia->destacado = $destacado;
+//        $noticia->categorias()->sync($request->categoria);
 
-        $noticia->save();
+        $noticia
+            ->fill($values)
+            ->save();
 
         return view('pages.noticias.result');
     }
