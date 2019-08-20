@@ -13,15 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
-Route::get('/foo', function () {
-    return 'Hello World';
-});
+Route::middleware('auth:api')->get('/user', 'Api\UserController@show');
 
 Route::namespace('Api')->group(function () {
     Route::apiResource('categorias', 'CategoriaController')->only(['index', 'show']);
+    Route::apiResource('diputados', 'DiputadoController')->only(['index', 'show']);
+    Route::apiResource('documentos', 'DocumentoController')->only(['index', 'show']);
+    Route::apiResource('eventos', 'EventoController')->only(['index', 'show']);
+    Route::apiResource('noticias', 'NoticiaController')->only(['index', 'show']);
 });
