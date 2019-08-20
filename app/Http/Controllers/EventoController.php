@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Evento;
 use App\Categoria;
 use App\Http\Requests\EventoRequest;
-use Illuminate\Http\Request;
 use App\Traits\FileOrNull;
-
 
 class EventoController extends Controller
 {
@@ -46,11 +44,11 @@ class EventoController extends Controller
 
         $values = $request->all();
 
-        $values['image'] = $this->fileOrNull($request->file('file'));
+        $values['image'] = $this->imageOrNull($request->file('file'));
 
         $values['destacado'] = boolval($values['destacado']);
 
-        $evento = Evento::create($values);
+        Evento::create($values);
 
 //        $evento->categorias()->attach($request->categoria);
 
@@ -97,7 +95,9 @@ class EventoController extends Controller
 
         $values = $request->all();
 
-        $values['image'] = $this->fileOrNull($request->file('file'));
+        $values['image'] = $this->imageOrNull($request->file('file'));
+
+        $values['image'] = $values['image'] ?? $evento->image;
 
         $values['destacado'] = boolval($values['destacado']);
 

@@ -11,7 +11,7 @@ class NoticiaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Noticia[]|\Illuminate\Database\Eloquent\Collection
+     * @return array|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {

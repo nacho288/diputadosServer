@@ -10,7 +10,7 @@ class CategoriaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Categoria[]|\Illuminate\Database\Eloquent\Collection
+     * @return array|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {

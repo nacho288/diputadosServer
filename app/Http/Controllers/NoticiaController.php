@@ -46,11 +46,11 @@ class NoticiaController extends Controller
 
         $values = $request->all();
 
-        $values['image'] = $this->fileOrNull($request->file('file'));
+        $values['image'] = $this->imageOrNull($request->file('file'));
 
         $values['destacado'] = boolval($values['destacado']);
 
-        $evento = Noticia::create($values);
+        Noticia::create($values);
 
 //        $evento->categorias()->attach($request->categoria);
 
@@ -97,7 +97,9 @@ class NoticiaController extends Controller
 
         $values = $request->all();
 
-        $values['image'] = $this->fileOrNull($request->file('file'));
+        $values['image'] = $this->imageOrNull($request->file('file'));
+
+        $values['image'] = $values['image'] ?? $noticia->image;
 
         $values['destacado'] = boolval($values['destacado']);
 

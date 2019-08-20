@@ -10,7 +10,7 @@ class DiputadoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Diputado[]|\Illuminate\Database\Eloquent\Collection
+     * @return array|\Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {

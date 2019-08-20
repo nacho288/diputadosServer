@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Diputado;
 use App\Http\Requests\DiputadoRequest;
-use Illuminate\Http\Request;
+use App\Traits\FileOrNull;
 
 class DiputadoController extends Controller
 {
+    use FileOrNull;
     /**
      * Display a listing of the resource.
      *
@@ -36,40 +37,11 @@ class DiputadoController extends Controller
      */
     public function store(DiputadoRequest $request)
     {
-        $request->validate([
-            'nombre' => 'required|string',
-            'apellido' => 'required|string',
-            'dni' => 'required|string',
-            'fecha_naciminento' => 'required|date',
-            'estado_civil' => 'required|string',
-            'domicilio' => 'required|string',
-            'domicilio_en_santa_fe' => 'required|string',
-            'localidad' => 'required|string',
-            'departamento' => 'required|string'
-        ]);
+        $values = $request->all();
 
-        $diputado = new Diputado();
+        $values['image'] = $this->imageOrNull($request->file('file'));
 
-        $diputado->nombre = $request->nombre;
-        $diputado->apellido = $request->apellido;
-        $diputado->dni = $request->dni;
-        $diputado->fecha_naciminento = $request->fecha_naciminento;
-        $diputado->estado_civil = $request->estado_civil;
-        $diputado->domicilio = $request->domicilio;
-        $diputado->localidad = $request->localidad;
-        $diputado->departamento = $request->departamento;
-        $diputado->telefono_particular = $request->telefono_particular;
-        $diputado->telefono_celular = $request->telefono_celular;
-        $diputado->email = $request->email;
-        $diputado->profesion = $request->profesion;
-        $diputado->domicilio_en_santa_fe = $request->domicilio_en_santa_fe;
-        $diputado->conyugue = $request->conyugue;
-        $diputado->secretaria = $request->secretaria;
-        $diputado->telefono_particular_secretaria = $request->telefono_particular_secretaria;
-        $diputado->telefono_celular_secretaria = $request->telefono_celular_secretaria;
-        $diputado->email_secretaria = $request->email_secretaria;
-
-        $diputado->save();
+        Diputado::create($values);
 
         return  view('pages.diputados.result');
     }
@@ -105,19 +77,15 @@ class DiputadoController extends Controller
      */
     public function update(DiputadoRequest $request, Diputado $diputado)
     {
-        $request->validate([
-            'nombre' => 'required|string',
-            'apellido' => 'required|string',
-            'dni' => 'required|string',
-            'fecha_naciminento' => 'required|date',
-            'estado_civil' => 'required|string',
-            'domicilio' => 'required|string',
-            'domicilio_en_santa_fe' => 'required|string',
-            'localidad' => 'required|string',
-            'departamento' => 'required|string'
-        ]);
+        $values = $request->all();
 
-        $diputado->update($request->all());
+        $values['image'] = $this->imageOrNull($request->file('file'));
+
+        $values['image'] = $values['image'] ?? $diputado->image;
+
+        $diputado
+            ->fill($values)
+            ->save();
 
         return view('pages.diputados.result');
 

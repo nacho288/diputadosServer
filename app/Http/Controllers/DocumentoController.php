@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Documento;
 use App\Http\Requests\DocumentoRequest;
-use Illuminate\Http\Request;
-
-
+use App\Traits\FileOrNull;
 
 class DocumentoController extends Controller
 {
+    use FileOrNull;
     /**
      * Display a listing of the resource.
      *
@@ -38,15 +37,12 @@ class DocumentoController extends Controller
      */
     public function store(DocumentoRequest $request)
     {
-        $archivo = $request->file('file');
-
-        $nombre = "doc-" . time() . '.' . $archivo->getClientOriginalExtension();
-
-        $archivo->storeAs('public/docs', $nombre);
-
         $values = $request->all();
-        $values['path'] = storage_path("app/public/docs/$nombre");
-        $values['url'] = asset("storage/docs/$nombre");
+
+        $retry = $this->docOrNull($request->file('file'));
+
+        $values['path'] = $retry['path'];
+        $values['url'] = asset("storage/docs/{$retry['nombre']}");
 
         Documento::create($values);
 
@@ -84,16 +80,21 @@ class DocumentoController extends Controller
      */
     public function update(DocumentoRequest $request, Documento $documento)
     {
-        if ($request->hasFile('file')) {
-            $nombre = "doc-" . time() . '.' . $request->file->getClientOriginalExtension();
-            $request->file->storeAs('docs', $nombre);
-            $documento->path = "/storage/docs/" . $nombre;
-            $documento->url = "/storage/docs/" . $nombre;
+        $values = $request->all();
+
+        $retry = $this->docOrNull($request->file('file'));
+
+        if ($retry['path']) {
+            $values['path'] = $retry['path'];
+            $values['url'] = asset("storage/docs/{$retry['nombre']}");
+        } else {
+            $values['path'] = $documento->path;
+            $values['url'] = $documento->url;
         }
 
-        $documento->nombre = $request->nombre;
-        $documento->descripcion = $request->descripcion;
-        $documento->save();
+        $documento
+            ->fill($values)
+            ->save();
 
         return view('pages.documentos.result');
     }
