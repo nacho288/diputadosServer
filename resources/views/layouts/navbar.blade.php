@@ -1,6 +1,3 @@
-
-</nav>
-
     <nav class="navbar navbar-expand-lg navbar-dark navColor p-0 shadow">
         
         <a class="navbar-brand my-1 ml-2 mr-3" href="/">
@@ -16,8 +13,8 @@
                     Noticias
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/noticias">Listado</a>
-                    <a class="dropdown-item" href="/noticias/create">Nueva</a>
+                    <a class="dropdown-item" href="{{ route('noticias.index') }}">Listado</a>
+                    <a class="dropdown-item" href="{{ route('noticias.create') }}">Nueva</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -25,8 +22,8 @@
                     Eventos
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/eventos">Listado</a>
-                    <a class="dropdown-item" href="/eventos/create">Nuevo</a>
+                    <a class="dropdown-item" href="{{ route('eventos.index') }}">Listado</a>
+                    <a class="dropdown-item" href="{{ route('eventos.create') }}">Nuevo</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -34,8 +31,8 @@
                     Documentos
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/documentos">Listado</a>
-                    <a class="dropdown-item" href="/documentos/create">Nuevo</a>
+                    <a class="dropdown-item" href="{{ route('documentos.index') }}">Listado</a>
+                    <a class="dropdown-item" href="{{ route('documentos.create') }}">Nuevo</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -43,8 +40,8 @@
                     Diputados
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/diputados">Listado</a>
-                    <a class="dropdown-item" href="/diputados/create">Añadir</a>
+                    <a class="dropdown-item" href="{{ route('diputados.index') }}">Listado</a>
+                    <a class="dropdown-item" href="{{ route('diputados.create') }}">Añadir</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -52,8 +49,8 @@
                     Categorias
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/categorias">Listado</a>
-                    <a class="dropdown-item" href="/categorias/create">Nueva</a>
+                    <a class="dropdown-item" href="{{ route('categorias.index') }}">Listado</a>
+                    <a class="dropdown-item" href="{{ route('categorias.create') }}">Nueva</a>
                     </div>
                 </li>
                 {{-- <li class="nav-item dropdown">
@@ -85,5 +82,4 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-
 
