@@ -79,9 +79,12 @@ class DiputadoController extends Controller
     {
         $values = $request->all();
 
-        $values['foto'] = $this->imageOrNull($request->file('file'));
-
-        $values['foto'] = $values['foto'] ?? $diputado->image;
+        if (array_key_exists('sin', $values)) {
+            $values['foto'] = null;
+        } else {
+            $values['foto'] = $this->imageOrNull($request->file('file'));
+            $values['foto'] = $values['foto'] ?? $diputado->foto;
+        }
 
         $diputado
             ->fill($values)

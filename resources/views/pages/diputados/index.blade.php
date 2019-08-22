@@ -14,10 +14,11 @@
                     <h2 class="blued mb-0">Listado de diputados</h2>
                 </div>
                 <div class="col mt-3 text-right">
-                    <a class="btn btn-sm btnColor" href="/eventos/create">Agregar</a>
+                    <a class="btn btn-sm btnColor" href="/diputados/create">Agregar</a>
                 </div>
             </div>
 
+            @if (count($diputados) != 0)
             <div class="row justify-content-center mt-3">
                 <div class="col">
                     <table class="table">
@@ -49,6 +50,19 @@
                     </table>
                 </div>
             </div>
+            @else
+                <div class="row mt-0">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row mt-3 mb-3">
+                    <div class="col text-center">
+                        <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
+                    </div>
+                </div>
+            @endif
 
 
 

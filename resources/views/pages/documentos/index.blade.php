@@ -9,14 +9,18 @@
 
         <div class="col col-md-6 col-lg-4 bg-white rounded shadow">
 
-            <div class="row mb-0">
-                <div class="col mt-3">
+            
+            <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
+                <div class="col col-auto mt-3">
                     <h2 class="blued mb-0">Listado de documentos</h2>
+                </div>
+                <div class="col col-auto mt-3 text-right">
+                    <a class="btn btn-sm btnColor" href="/documentos/create">Agregar</a>
                 </div>
             </div>
 
-
-            <div class="row justify-content-center mt-3 mb-0">
+            @if (count($documentos) != 0)
+            <div class="row justify-content-center mt-3 mb-4">
                 <div class="col">
                     <table class="table mb-0">
                         <thead>
@@ -39,18 +43,19 @@
                     </table>
                 </div>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col text-center">
-                   <hr clas="mt-0">
+            @else
+                <div class="row mt-0">
+                    <div class="col">
+                        <hr>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row mb-3">
-                <div class="col text-center">
-                    <a href="/documentos/create" class="btn btnColor">Nuevo</a>
+                <div class="row mt-3 mb-2">
+                    <div class="col text-center">
+                        <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
+                    </div>
                 </div>
-            </div>
+            @endif
 
         </div>
 
