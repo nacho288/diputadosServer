@@ -35,7 +35,6 @@ class EventoRequest extends FormRequest
                     'file' => 'nullable|image',
                     'desde' => 'required|date',
                     'hasta' => 'required|date|after:desde',
-                    'destacado' => 'required|boolean',
                     'url_video' => 'nullable|url',
                     'url_audio' => 'nullable|url',
                 ];

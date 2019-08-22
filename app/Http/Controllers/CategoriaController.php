@@ -77,7 +77,7 @@ class CategoriaController extends Controller
             ->fill($request->all())
             ->save();
 
-        return redirect()->route('categorias.index');
+        return view('pages.categorias.result');
     }
 
     /**

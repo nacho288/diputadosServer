@@ -7,18 +7,18 @@
 @auth
     <div class="row justify-content-center mt-5 animated fadeIn">
 
-        <div class="col col-lg-6">
+        <div class="col col-md-6 col-lg-4 bg-white rounded shadow">
 
             <div class="row mb-0">
-                <div class="col">
-                    <h3 class="text-center text-secondary display-4">Listado de documentos</h3>
+                <div class="col mt-3">
+                    <h2 class="blued mb-0">Listado de documentos</h2>
                 </div>
             </div>
 
 
-            <div class="row justify-content-center mt-3">
-                <div class="col col-lg-8">
-                    <table class="table">
+            <div class="row justify-content-center mt-3 mb-0">
+                <div class="col">
+                    <table class="table mb-0">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{  $documento->nombre }}</td>
                                 <td>
-                                    <a href="/documentos/{{  $documento->id }}" class="badge badge-secondary">Detalles</a>
+                                    <a href="/documentos/{{  $documento->id }}" class="badge btnColor">Detalles</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -41,14 +41,14 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col col-lg-8 text-center">
-                   <hr>
+                <div class="col text-center">
+                   <hr clas="mt-0">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col text-center">
-                    <a href="/documentos/create" class="btn btn-dark">Nuevo</a>
+                    <a href="/documentos/create" class="btn btnColor">Nuevo</a>
                 </div>
             </div>
 

@@ -1,19 +1,19 @@
 @extends('layouts.page')
 
 @section('content')
-<div class="row my-5"></div><div class="row my-5"></div><div class="row my-5"></div>
+<div class="row my-md-5"></div><div class="row my-md-5"></div><div class="row my-md-5"></div>
 
 <div class="row justify-content-center mt-5 animated fadeIn">
 
-    <div class="col col-lg-4">
+    <div class="col col-md-6 col-lg-4 px-3 bg-white rounded shadow">
 
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center text-secondary display-3">Diputados App</h1>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <img class="img-fluid" src="{{ URL::asset('img/logod.png') }}"  alt="">
             </div>
         </div>
 
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-4">
             <div class="col">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -30,12 +30,12 @@
                         <input type="checkbox" class="form-check-input" name="remember" id="remember">
                         <label class="form-check-label" for="exampleCheck1">recordar</label>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mb-3">
                         <div class="col text-center">
-                            <a href="/register" class="btn btn-secondary mt-4">Registrarse</a>
+                            <a href="/register" class="btn btnColor mt-4">Registrarse</a>
                         </div>
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-secondary mt-4">Enviar</button>
+                            <button type="submit" class="btn btnColor mt-4">Enviar</button>
                         </div>
                     </div>
                 </form>

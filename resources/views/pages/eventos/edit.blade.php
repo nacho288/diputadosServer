@@ -6,26 +6,29 @@
 
 @auth
 
-    <div class="row justify-content-center mt-4">
-        <div class="col text-center">
-            <h1 class="text-secondary display-4">Editar evento</h1>
-        </div>
-    </div>
+<div class="row justify-content-center animated fadeIn mt-5">
+    <div class="col col-lg-6 bg-white rounded shadow">
 
-    <div class="row justify-content-center">
-        <div class="col col-lg-4">
-
-            <div class="row">
-                <div class="col text-center">
-                    <hr>
-                </div>
+        <div class="row justify-content-center mt-3 animated fadeIn">
+            <div class="col">
+                <h2 class="blued mb-0">Editar evento</h2>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col">
-                    <form action="/eventos/{{ $pack['evento']->id}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+        <div class="row">
+            <div class="col text-center">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row justify-content-center animated fadeIn">
+            <div class="col">
+                <form action="/eventos/{{ $pack['evento']->id}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        
                         <div class="form-group">
                             <label for="titulo">Título:</label>
                             <input value="{{  $pack['evento']->titulo }}" name="titulo" type="text" class="form-control" id="titulo" aria-describedby="titulo" placeholder="Título...">
@@ -39,11 +42,13 @@
                         </div>
                         <div class="form-group">
                             <label for="contenido">Contenido:</label>
-                            <textarea name="cuerpo" class="form-control" id="contenido" placeholder="Contenido...">{{$pack['evento']->cuerpo }}</textarea>
+                            <textarea name="cuerpo" class="form-control" rows="10" id="contenido" placeholder="Contenido...">{{$pack['evento']->cuerpo }}</textarea>
                             @error('cuerpo')
                                 <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                             @enderror
                         </div>
+                    </div>
+                    <div class="col-12 col-md-6">
                         <div class="form-group">
                             <label for="desde">Válido desde:</label>
                             <input value="{{  $pack['evento']->desde }}" name="desde" type="date" class="form-control" id="desde" aria-describedby="desde">
@@ -58,11 +63,16 @@
                                 <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-0">
                             <label for="imagen">Imagen:</label>
                             <input name="file" type="file" class="form-control-file" id="imagen" aria-describedby="imagen" placeholder="imagen...">
-                            <small id="emailHelp" class="form-text text-muted">Si desea sustituir la imagen, complete este campo, de lo contrario déjelo vacio.</small>
+                            <small class="" id="emailHelp" class="form-text text-muted">Si desea sustituir la imagen, complete este campo, de lo contrario déjelo vacio.</small>
                         </div>
+                        <div class="form-check mt-1 mb-3">
+                            <input name="sin" type="checkbox" class="form-check-input" id="exampleCheck2">
+                            <label class="form-check-label" for="exampleCheck2">Sin imagen</label>
+                        </div>
+
                         <div class="form-group">
                             <label for="video">Url del video:</label>
                             <input value="{{  $pack['evento']->url_video }}" name="url_video" type="url" class="form-control" id="video" aria-describedby="video" placeholder="url...">
@@ -79,30 +89,40 @@
                             @enderror
                         </div>
                         <div class="form-check">
-                            <input value="{{  $pack['evento']->destacado }}" name="destacado" type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Destacada</label>
+                            <input  
+                            @if ($pack['evento']->destacado)
+                                checked
+                            @endif
+                            name="destacado" type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Destacado</label>
                         </div>
-                         
-                        <div class="row">
-                            <div class="col text-center">
-                                <hr>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-dark">Guardar</button>
-                            </div>
-                        </div>
-                        
-                    </form>
+                    </div>
+
+                    
                 </div>
-                </div>
+
+                    <div class="row">
+                        <div class="col text-center">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col text-center">
+                            <button type="submit" class="btn btnColor">Guardar</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-
-
-        
-
+        </div>
     </div>
+
+
+            
+
+</div>
+
+
 @endauth
 
 

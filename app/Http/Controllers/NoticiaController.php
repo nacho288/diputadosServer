@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\NoticiaRequest;
 use App\Noticia;
 use App\Categoria;
-use Illuminate\Http\Request;
 use App\Traits\FileOrNull;
 
 
@@ -40,19 +39,20 @@ class NoticiaController extends Controller
      */
     public function store(NoticiaRequest $request)
     {
-//        $request->validate([
-//            'categoria' => 'required'
-//        ]);
 
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        $values['imagen'] = $this->imageOrNull($request->file('file'));
 
-        $values['destacado'] = boolval($values['destacado']);
+        if (array_key_exists('destacado', $values)) {
+            $values['destacado'] = boolval($values['destacado']);
+        }   else {
+            $values['destacado'] = false;
+        }
 
-        Noticia::create($values);
+        $noticia = Noticia::create($values);
 
-//        $evento->categorias()->attach($request->categoria);
+        $noticia->categorias()->attach($request->categoria);
 
         return view('pages.noticias.result');
     }
@@ -91,23 +91,27 @@ class NoticiaController extends Controller
      */
     public function update(NoticiaRequest $request, Noticia $noticia)
     {
-//        $request->validate([
-//            'categoria' => 'required'
-//        ]);
-
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        if (array_key_exists('sin', $values)) {
+            $values['imagen'] = null;
+        } else {
+            $values['imagen'] = $this->imageOrNull($request->file('file'));
+            $values['imagen'] = $values['imagen'] ?? $noticia->imagen;
+        }
 
-        $values['image'] = $values['image'] ?? $noticia->image;
-
-        $values['destacado'] = boolval($values['destacado']);
-
-//        $noticia->categorias()->sync($request->categoria);
+        if (array_key_exists('destacado', $values)) {
+            $values['destacado'] = boolval($values['destacado']);
+        } else {
+            $values['destacado'] = false;
+        }
 
         $noticia
             ->fill($values)
             ->save();
+
+        $noticia->categorias()->detach();
+        $noticia->categorias()->attach($request->categoria);
 
         return view('pages.noticias.result');
     }

@@ -6,14 +6,14 @@
 
 @auth
 
-    <div class="row justify-content-center mt-4 animated fadeIn">
-        <div class="col text-center">
-            <h1 class="text-secondary display-4">Nuevo documento</h1>
-        </div>
-    </div>
+    <div class="row justify-content-center animated fadeIn mt-5">
+        <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
 
-    <div class="row justify-content-center animated fadeIn">
-        <div class="col col-lg-5">
+            <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
+                <div class="col mt-3">
+                    <h2 class="blued mb-0">Nuevo documento</h2>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col text-center">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-dark">Guardar</button>
+                                <button type="submit" class="btn btnColor">Guardar</button>
                             </div>
                         </div>
                         

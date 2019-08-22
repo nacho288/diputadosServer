@@ -1,15 +1,15 @@
 @extends('layouts.page')
 
 @section('content')
-<div class="row my-5"></div><div class="row my-5"></div>
+<div class="row my-md-5"></div><div class="row my-md-5"></div>
 
 <div class="row justify-content-center mt-5 animated fadeIn">
 
-    <div class="col col-lg-4">
+    <div class="col col-lg-4 px-3 bg-white rounded shadow">
 
         <div class="row">
-            <div class="col">
-                <h1 class="text-center text-secondary display-4">Registro de usuario</h1>
+            <div class="col mt-3">
+                    <h2 class="blued mb-0">Registro de usuario</h2>
             </div>
         </div>
 
@@ -42,16 +42,16 @@
 
                     <div class="row justify-content-center">
                         <div class="col text-center">
-                            <hr>
+                            <hr class="m-0">
                         </div>
                     </div>
 
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center mb-3">
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-secondary mt-4">Enviar</button>
+                            <button type="submit" class="btn btnColor mt-3">Enviar</button>
                         </div>
                         <div class="col text-center">
-                            <a href="/" class="btn btn-secondary mt-4">Volver</a>
+                            <a href="/" class="btn btnColor mt-3">Volver</a>
                         </div>
 
                     </div>
@@ -61,13 +61,13 @@
 
                 <div class="row justify-content-center">
                     <div class="col text-center">
-                        <hr>
+                        <hr class="mt-0">
                     </div>
                 </div>
 
                 <div class="row justify-content-center">
                     <div class="col text-center">
-                        <p class="text-danger">El E-mail ingresado no es correcto</p>
+                        <p class="text-danger m-0">El E-mail ingresado no es correcto</p>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col text-center">
-                        <p class="text-danger">Contraseña incorrecta</p>
+                        <p class="text-danger m-0">Contraseña incorrecta</p>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
 
                 <div class="row justify-content-center">
                     <div class="col text-center">
-                        <p class="text-danger">Error en el campo nombre</p>
+                        <p class="text-danger mt-0 mb-3">Error en el campo nombre</p>
                     </div>
                 </div>
 

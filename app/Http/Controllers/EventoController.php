@@ -38,19 +38,19 @@ class EventoController extends Controller
      */
     public function store(EventoRequest $request)
     {
-//        $request->validate([
-//            'categoria' => 'required'
-//        ]);
-
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        $values['imagen'] = $this->imageOrNull($request->file('file'));
 
-        $values['destacado'] = boolval($values['destacado']);
+        if (array_key_exists('destacado', $values)) {
+            $values['destacado'] = boolval($values['destacado']);
+        } else {
+            $values['destacado'] = false;
+        }
 
-        Evento::create($values);
+        $evento = Evento::create($values);
 
-//        $evento->categorias()->attach($request->categoria);
+        $evento->categorias()->attach($request->categoria);
 
         return view('pages.eventos.result');
     }
@@ -89,23 +89,27 @@ class EventoController extends Controller
      */
     public function update(EventoRequest $request, Evento $evento)
     {
-//        $request->validate([
-//            'categoria' => 'required'
-//        ]);
-
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        if (array_key_exists('sin', $values)) {
+            $values['imagen'] = null;
+        } else {
+            $values['imagen'] = $this->imageOrNull($request->file('file'));
+            $values['imagen'] = $values['imagen'] ?? $evento->imagen;
+        }
 
-        $values['image'] = $values['image'] ?? $evento->image;
-
-        $values['destacado'] = boolval($values['destacado']);
-
-//        $evento->categorias()->sync($request->categoria);
+        if (array_key_exists('destacado', $values)) {
+            $values['destacado'] = boolval($values['destacado']);
+        } else {
+            $values['destacado'] = false;
+        }
 
         $evento
             ->fill($values)
             ->save();
+
+        $evento->categorias()->detach();
+        $evento->categorias()->attach($request->categoria);
 
         return view('pages.eventos.result');
     }

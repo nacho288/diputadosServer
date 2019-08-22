@@ -39,11 +39,11 @@ class DiputadoController extends Controller
     {
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        $values['foto'] = $this->imageOrNull($request->file('file'));
 
         Diputado::create($values);
 
-        return  view('pages.diputados.result');
+        return view('pages.diputados.result');
     }
 
     /**
@@ -79,9 +79,9 @@ class DiputadoController extends Controller
     {
         $values = $request->all();
 
-        $values['image'] = $this->imageOrNull($request->file('file'));
+        $values['foto'] = $this->imageOrNull($request->file('file'));
 
-        $values['image'] = $values['image'] ?? $diputado->image;
+        $values['foto'] = $values['foto'] ?? $diputado->image;
 
         $diputado
             ->fill($values)

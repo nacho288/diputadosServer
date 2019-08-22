@@ -13,6 +13,7 @@ class Diputado extends Model
         'fecha_naciminento',
         'estado_civil',
         'domicilio',
+        'foto',
         'localidad',
         'departamento',
         'telefono_celular',

@@ -12,10 +12,11 @@ trait FileOrNull
             return null;
         }
 
-        $nombre = MD5($file) . '.' . $file->getClientOriginalExtension();
-        $file->storeAs("public/images", $file);
+        $nombre = "img-" . time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs("images", $nombre);
 
-        return storage_path("app/public/images/$nombre");
+        return "/storage/images/{$nombre}";
+      
     }
 
     protected function docOrNull(?UploadedFile $file = null): array
@@ -24,12 +25,12 @@ trait FileOrNull
             return ['path' => null, 'name' => null];
         }
 
-        $nombre = MD5($file) . '.' . $file->getClientOriginalExtension();
-        $file->storeAs("public/documents", $file);
+        $nombre = "doc-" . time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs("docs", $nombre);
 
         return [
-            'path' => storage_path("app/public/documents/$nombre"),
-            'name' => $nombre,
+            'path' => "/app/public/docs/$nombre",
+            'nombre' => $nombre,
         ];
     }
 }

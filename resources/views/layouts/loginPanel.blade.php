@@ -1,8 +1,8 @@
 <div class="row my-5"></div><div class="row my-5"></div><div class="row my-5"></div>
 
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-5 ">
 
-    <div class="col col-lg-4">
+    <div class="col col-lg-4 ">
 
         <div class="row">
             <div class="col">

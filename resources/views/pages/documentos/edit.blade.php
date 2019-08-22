@@ -6,14 +6,14 @@
 
 @auth
 
-    <div class="row justify-content-center mt-4">
-        <div class="col text-center">
-            <h1 class="text-secondary display-4">Editar documento</h1>
-        </div>
-    </div>
+    <div class="row justify-content-center animated fadeIn mt-5">
+        <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
 
-    <div class="row justify-content-center">
-        <div class="col col-lg-5">
+            <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
+                <div class="col mt-3">
+                    <h2 class="blued mb-0">Editar documento</h2>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col text-center">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="descripcion">Descripción:</label>
-                            <textarea name="descripcion" class="form-control" id="descripcion" value="{{$documento->nombre}}" placeholder="Descripción..."></textarea>
+                            <textarea name="descripcion" class="form-control" id="descripcion" placeholder="Descripción...">{{$documento->descripcion}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="imagen">Archivo:</label>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col text-center">
-                                <button type="submit" class="btn btn-dark">Guardar</button>
+                                <button type="submit" class="btn btnColor">Guardar</button>
                             </div>
                         </div>
                         

@@ -13,7 +13,7 @@ class NoticiaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -35,7 +35,6 @@ class NoticiaRequest extends FormRequest
                     'file' => 'nullable|image',
                     'desde' => 'required|date',
                     'hasta' => 'required|date|after:desde',
-                    'destacado' => 'required|boolean',
                     'url_video' => 'nullable|url',
                     'url_audio' => 'nullable|url',
                 ];
