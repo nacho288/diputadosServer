@@ -13,8 +13,8 @@
                     Noticias
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('noticias.index') }}">Listado</a>
                     <a class="dropdown-item" href="{{ route('noticias.create') }}">Nueva</a>
+                    <a class="dropdown-item" href="{{ route('noticias.index') }}">Listado</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -22,8 +22,8 @@
                     Eventos
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('eventos.index') }}">Listado</a>
                     <a class="dropdown-item" href="{{ route('eventos.create') }}">Nuevo</a>
+                    <a class="dropdown-item" href="{{ route('eventos.index') }}">Listado</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -31,8 +31,8 @@
                     Documentos
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('documentos.index') }}">Listado</a>
                     <a class="dropdown-item" href="{{ route('documentos.create') }}">Nuevo</a>
+                    <a class="dropdown-item" href="{{ route('documentos.index') }}">Listado</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -40,28 +40,35 @@
                     Diputados
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('diputados.index') }}">Listado</a>
                     <a class="dropdown-item" href="{{ route('diputados.create') }}">Añadir</a>
+                    <a class="dropdown-item" href="{{ route('diputados.index') }}">Listado</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorias
+                    </a>
+                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('categorias.create') }}">Nueva</a>
+                    <a class="dropdown-item" href="{{ route('categorias.index') }}">Listado</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Estructura administrativa
+                    </a>
+                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item disabled">no disponible</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle navBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categorias
+                    Estructura política 
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('categorias.index') }}">Listado</a>
-                    <a class="dropdown-item" href="{{ route('categorias.create') }}">Nueva</a>
+                    <a class="dropdown-item disabled" >no disponible</a>
                     </div>
                 </li>
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Usuarios
-                    </a>
-                    <div class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Administrativos</a>
-                    <a class="dropdown-item" href="#">Diputados</a>
-                    </div>
-                </li> --}}
 
             </ul>
             <ul class="navbar-nav mr-2">

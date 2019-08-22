@@ -13,11 +13,16 @@
 
         <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
 
-            
+
             
             <div class="row align-items-center justify-content-center p-0">
                 <div class="col col-auto mt-4">
-                    <img class="rounded-circle shadow" src="{{$diputado->foto}}" height="80" width="80" alt="">
+                    @if ($diputado->foto)
+                        <img class="rounded-circle shadow-sm" src="{{$diputado->foto}}" height="80" width="80" alt="">
+                    @else
+                        <img class="rounded-circle shadow-sm" src="{{URL::asset('img/avatar.jpg')}}" height="80" width="80" alt="">
+                    @endif
+                    
                 </div>
                 
                 <div class="col p-0 mt-3">
@@ -199,10 +204,10 @@
 
             <div class="row mb-3">
                 <div class="col text-center">
-                    <a  class="btn btn-dark" href="/diputados/{{  $diputado->id  }}/edit">Editar</a>
+                    <a  class="btn btnColor" href="/diputados/{{  $diputado->id  }}/edit">Editar</a>
                 </div>
                 <div class="col text-center">
-                    <a  class="btn btn-dark" href="/diputados">Volver</a>
+                    <a  class="btn btnColor" href="/diputados">Volver</a>
                 </div>
             </div>
 
