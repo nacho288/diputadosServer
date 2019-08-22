@@ -2,7 +2,7 @@
 </nav>
 
     <nav class="navbar navbar-expand-lg navbar-dark navColor p-0 shadow">
-        
+
         <a class="navbar-brand my-1 ml-2 mr-3" href="/">
             <img src="{{ URL::asset('img/logoc.png') }}" height="60" alt="">
         </a>
@@ -69,7 +69,7 @@
             </ul>
             <ul class="navbar-nav mr-2">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn-outline navBtn" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle btn-outline navBtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right m-0 animate slideIn shadow" aria-labelledby="navbarDropdownMenuLink">

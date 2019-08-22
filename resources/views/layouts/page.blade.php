@@ -6,11 +6,13 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ URL::asset('css/general.css') }}" crossorigin="anonymous">
+{{--        <link rel="stylesheet" href="{{ asset('css/general.css') }}">--}}
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        @stack('head-style')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        @stack('head-script')
 
         <title>@yield('title')</title>
     </head>
@@ -22,5 +24,6 @@
         <div class="container-fluid">
             @yield('content')
         </div>
+        @stack('extra-script')
     </body>
 </html>
