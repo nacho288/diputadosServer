@@ -13,10 +13,10 @@ trait FileOrNull
         }
 
         $nombre = "img-" . time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs("images", $nombre);
+        $file->storeAs("public/images", $nombre);
 
-        return "/storage/images/{$nombre}";
-      
+        return asset("/storage/images/{$nombre}");
+
     }
 
     protected function docOrNull(?UploadedFile $file = null): array
