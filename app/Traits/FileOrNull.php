@@ -13,7 +13,7 @@ trait FileOrNull
         }
 
         $nombre = "img-" . time() . '.' . $file->getClientOriginalExtension();
-        $file->storeAs("public/images", $nombre);
+        $file->storeAs("images", $nombre);
 
         return asset("/storage/images/{$nombre}");
 
@@ -29,7 +29,7 @@ trait FileOrNull
         $file->storeAs("docs", $nombre);
 
         return [
-            'path' => "/app/public/docs/$nombre",
+            'path' => storage_path("/app/public/docs/$nombre"),
             'nombre' => $nombre,
         ];
     }
