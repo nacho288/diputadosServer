@@ -14,7 +14,7 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return Diputado::all();
+        return Diputado::orderBy('apellido', 'asc')->orderBy('nombre', 'asc')->get();
     }
 
     /**
