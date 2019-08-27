@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Evento;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class EventoController extends Controller
 {
@@ -14,7 +15,12 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return Evento::all()->sortBy("desde");
+        $now = Carbon::now();
+
+        return Evento::where('desde', '<=', $now)
+            ->where('hasta', '>=', $now)
+            ->orderBy('desde', 'asc')
+            ->get();
     }
 
     /**

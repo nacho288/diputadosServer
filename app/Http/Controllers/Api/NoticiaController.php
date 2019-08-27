@@ -20,7 +20,8 @@ class NoticiaController extends Controller
 
         return Noticia::where('desde', '<=', $now)
             ->where('hasta', '>=', $now)
-            ->sortBy("desde");
+            ->orderBy('desde', 'asc')
+            ->get();
     }
 
     /**
