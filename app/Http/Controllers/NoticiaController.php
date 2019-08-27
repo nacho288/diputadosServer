@@ -18,7 +18,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return view('pages.noticias.index')->with('noticias', Noticia::all());
+        return view('pages.noticias.index')->with('noticias', Noticia::all()->sortBy("desde"));
     }
 
     /**

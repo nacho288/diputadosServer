@@ -17,7 +17,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return view('pages.eventos.index')->with('eventos', Evento::all());
+        return view('pages.eventos.index')->with('eventos', Evento::all()->sortBy("desde"));
     }
 
     /**

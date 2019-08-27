@@ -15,7 +15,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return Noticia::all();
+        return Noticia::all()->sortBy("desde");
     }
 
     /**

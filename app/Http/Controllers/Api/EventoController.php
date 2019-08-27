@@ -14,7 +14,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        return Evento::all();
+        return Evento::all()->sortBy("desde");
     }
 
     /**
