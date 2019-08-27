@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Noticia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class NoticiaController extends Controller
 {
@@ -15,7 +16,11 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return Noticia::all()->sortBy("desde");
+        $now = Carbon::now();
+
+        return Noticia::where('desde', '<=', $now)
+            ->where('hasta', '>=', $now)
+            ->sortBy("desde");
     }
 
     /**
