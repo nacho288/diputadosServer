@@ -15,8 +15,8 @@ trait FileOrNull
         $nombre = "img-" . time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs("images", $nombre);
 
-        return "/storage/images/{$nombre}";
-      
+        return asset("/storage/images/{$nombre}");
+
     }
 
     protected function docOrNull(?UploadedFile $file = null): array
@@ -29,7 +29,7 @@ trait FileOrNull
         $file->storeAs("docs", $nombre);
 
         return [
-            'path' => "/app/public/docs/$nombre",
+            'path' => storage_path("/app/public/docs/$nombre"),
             'nombre' => $nombre,
         ];
     }
