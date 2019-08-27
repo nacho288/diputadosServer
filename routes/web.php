@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\App;
 
-Auth::routes();
+Auth::routes([
+    'register' => !App::environment('production')
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -17,7 +17,7 @@
             <div class="col">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    
+
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
                         <input id="email" name="email" type="email" class="form-control" aria-describedby="email" placeholder="Email">
@@ -31,9 +31,11 @@
                         <label class="form-check-label" for="exampleCheck1">recordar</label>
                     </div>
                     <div class="row justify-content-center mb-3">
+                        @if(! \App::environment('production'))
                         <div class="col text-center">
-                            <a href="/register" class="btn btnColor mt-4">Registrarse</a>
+                            <a href="{{ route('register') }}" class="btn btnColor mt-4">Registrarse</a>
                         </div>
+                        @endif
                         <div class="col text-center">
                             <button type="submit" class="btn btnColor mt-4">Enviar</button>
                         </div>
@@ -71,7 +73,7 @@
                 </div>
 
                 @enderror
-                
+
             </div>
         </div>
 

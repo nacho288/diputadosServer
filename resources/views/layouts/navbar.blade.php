@@ -46,7 +46,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categorias
+                    Categorías
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('categorias.create') }}">Nueva</a>
@@ -63,7 +63,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle navBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Estructura política 
+                    Estructura política
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" >no disponible</a>
