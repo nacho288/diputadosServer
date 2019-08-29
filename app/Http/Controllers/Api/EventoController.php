@@ -17,7 +17,8 @@ class EventoController extends Controller
     {
         $now = Carbon::now();
 
-        return Evento::where('desde', '<=', $now)
+        return Evento::with('categorias')
+            ->where('desde', '<=', $now)
             ->where('hasta', '>=', $now)
             ->orderBy('desde', 'asc')
             ->get();

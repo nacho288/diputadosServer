@@ -18,7 +18,8 @@ class NoticiaController extends Controller
     {
         $now = Carbon::now();
 
-        return Noticia::where('desde', '<=', $now)
+        return Noticia::with('categorias')
+            ->where('desde', '<=', $now)
             ->where('hasta', '>=', $now)
             ->orderBy('desde', 'asc')
             ->get();
