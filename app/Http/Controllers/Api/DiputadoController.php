@@ -23,6 +23,7 @@ class DiputadoController extends Controller
      * Display the specified resource.
      *
      * @param  Diputado $diputado
+     *
      * @return Diputado
      */
     public function show(Diputado $diputado)

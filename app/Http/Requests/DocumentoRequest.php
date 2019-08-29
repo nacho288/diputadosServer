@@ -37,7 +37,7 @@ class DocumentoRequest extends FormRequest
                 return [
                     'nombre' => 'required|string',
                     'descripcion' => 'nullable|string',
-                    'file' => 'nullable|file'
+                    'file' => 'nullable|file',
                 ];
 
             default:

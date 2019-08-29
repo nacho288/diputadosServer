@@ -8,7 +8,7 @@ trait FileOrNull
 {
     protected function imageOrNull(?UploadedFile $file = null): ?string
     {
-        if (!$file) {
+        if (! $file) {
             return null;
         }
 
@@ -16,12 +16,11 @@ trait FileOrNull
         $file->storeAs("images", $nombre);
 
         return asset("/storage/images/{$nombre}");
-
     }
 
     protected function docOrNull(?UploadedFile $file = null): array
     {
-        if (!$file) {
+        if (! $file) {
             return ['path' => null, 'name' => null];
         }
 

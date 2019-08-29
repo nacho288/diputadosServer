@@ -21,6 +21,7 @@ class DocumentoController extends Controller
      * Display the specified resource.
      *
      * @param  Documento $documento
+     *
      * @return Documento
      */
     public function show(Documento $documento)

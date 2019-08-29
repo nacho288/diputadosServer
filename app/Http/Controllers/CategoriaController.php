@@ -11,7 +11,7 @@ class CategoriaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class CategoriaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -31,7 +31,8 @@ class CategoriaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CategoriaRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CategoriaRequest $request)
@@ -39,14 +40,15 @@ class CategoriaController extends Controller
         // $categoria = categoria::create($request->all());
         Categoria::create($request->all());
 
-        return  view('pages.categorias.result');
+        return view('pages.categorias.result');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Categoria  $categoria
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Categoria $categoria)
     {
@@ -57,7 +59,8 @@ class CategoriaController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Categoria  $categoria
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Categoria $categoria)
     {
@@ -67,8 +70,9 @@ class CategoriaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\CategoriaRequest  $request
      * @param  \App\Categoria  $categoria
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(CategoriaRequest $request, Categoria $categoria)
@@ -84,6 +88,7 @@ class CategoriaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Categoria  $categoria
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Categoria $categoria)

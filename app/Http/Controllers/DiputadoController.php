@@ -12,7 +12,7 @@ class DiputadoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class DiputadoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -32,7 +32,8 @@ class DiputadoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\DiputadoRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(DiputadoRequest $request)
@@ -50,7 +51,8 @@ class DiputadoController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Diputado  $diputado
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Diputado $diputado)
     {
@@ -61,7 +63,8 @@ class DiputadoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Diputado  $diputado
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Diputado $diputado)
     {
@@ -71,8 +74,9 @@ class DiputadoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\DiputadoRequest  $request
      * @param  \App\Diputado  $diputado
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(DiputadoRequest $request, Diputado $diputado)
@@ -91,13 +95,13 @@ class DiputadoController extends Controller
             ->save();
 
         return view('pages.diputados.result');
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Diputado  $diputado
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Diputado $diputado)

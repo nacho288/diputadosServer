@@ -21,6 +21,7 @@ class CategoriaController extends Controller
      * Display the specified resource.
      *
      * @param  Categoria $categoria
+     *
      * @return Categoria
      */
     public function show(Categoria $categoria)

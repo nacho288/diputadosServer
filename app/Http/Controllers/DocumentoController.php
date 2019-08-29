@@ -12,7 +12,7 @@ class DocumentoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class DocumentoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -32,7 +32,8 @@ class DocumentoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\DocumentoRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(DocumentoRequest $request)
@@ -53,7 +54,8 @@ class DocumentoController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Documento  $documento
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Documento $documento)
     {
@@ -64,7 +66,8 @@ class DocumentoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Documento  $documento
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Documento $documento)
     {
@@ -74,8 +77,9 @@ class DocumentoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\DocumentoRequest  $request
      * @param  \App\Documento  $documento
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(DocumentoRequest $request, Documento $documento)
@@ -103,6 +107,7 @@ class DocumentoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Documento  $documento
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Documento $documento)

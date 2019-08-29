@@ -28,10 +28,13 @@ class EventoController extends Controller
      * Display the specified resource.
      *
      * @param  Evento  $evento
+     *
      * @return Evento
      */
     public function show(Evento $evento)
     {
+        $evento->categorias;
+
         return $evento;
     }
 }

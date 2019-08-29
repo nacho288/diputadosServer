@@ -13,7 +13,7 @@ class EventoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class EventoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -33,7 +33,8 @@ class EventoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\EventoRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(EventoRequest $request)
@@ -59,7 +60,8 @@ class EventoController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Evento  $evento
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Evento $evento)
     {
@@ -70,21 +72,23 @@ class EventoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Evento  $evento
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Evento $evento)
     {
         return view('pages.eventos.edit')->with("pack", [
             'evento' => $evento,
-            'categorias' => Categoria::all()
+            'categorias' => Categoria::all(),
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\EventoRequest  $request
      * @param  \App\Evento  $evento
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(EventoRequest $request, Evento $evento)
@@ -118,6 +122,7 @@ class EventoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Evento  $evento
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Evento $evento)

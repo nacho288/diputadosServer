@@ -29,10 +29,13 @@ class NoticiaController extends Controller
      * Display the specified resource.
      *
      * @param  Noticia  $noticia
+     *
      * @return Noticia
      */
     public function show(Noticia $noticia)
     {
+        $noticia->categorias;
+
         return $noticia;
     }
 }

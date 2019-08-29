@@ -7,14 +7,13 @@ use App\Noticia;
 use App\Categoria;
 use App\Traits\FileOrNull;
 
-
 class NoticiaController extends Controller
 {
     use FileOrNull;
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -24,7 +23,7 @@ class NoticiaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -34,7 +33,8 @@ class NoticiaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\NoticiaRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(NoticiaRequest $request)
@@ -61,7 +61,8 @@ class NoticiaController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Noticia  $noticia
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Noticia $noticia)
     {
@@ -72,21 +73,25 @@ class NoticiaController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Noticia  $noticia
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Noticia $noticia)
     {
-        return view('pages.noticias.edit')->with( "pack" ,[
-            'noticia' => $noticia,
-            'categorias' => Categoria::all()
+        return view('pages.noticias.edit', [
+            'pack' => [
+                'noticia' => $noticia,
+                'categorias' => Categoria::all(),
+            ],
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\NoticiaRequest  $request
      * @param  \App\Noticia  $noticia
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(NoticiaRequest $request, Noticia $noticia)
@@ -120,6 +125,7 @@ class NoticiaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Noticia  $noticia
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Noticia $noticia)
