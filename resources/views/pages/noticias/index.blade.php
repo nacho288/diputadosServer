@@ -70,6 +70,14 @@
         </div>
 
     </div>
+
+    <script>
+    
+    console.log({!! json_encode($noticias->toArray()) !!});
+    
+    
+    </script>
+
 @endauth
 
 

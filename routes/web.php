@@ -27,4 +27,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('documentos', 'DocumentoController');
     Route::resource('diputados', 'DiputadoController');
     Route::resource('categorias', 'CategoriaController');
+    Route::resource('bloques', 'BloqueController');
+    Route::resource('subbloques', 'SubbloqueController');
+    Route::resource('internas', 'InternaController');
 });

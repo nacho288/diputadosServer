@@ -1,0 +1,31 @@
+
+
+Tabla diputados:
+    > sub_bloque_id  <--- añadir
+
+Tabla "bloques":
+    >id 
+    >nombre (string)
+    >logo (url)
+
+Tabla "sub_bloques":
+    >id 
+    >nombre (string)
+    >logo (url)
+    >presidente (diputado_id) 
+
+tabla "comiciones_internas":
+    >id 
+    >nombre (string)
+    >presidente (diputado_id) 
+    >vice_presidente (diputado_id)
+    >secretario (string)
+    >direccion (string)
+    >telefono (string)
+    >email (string)
+    
+tabla "diputado_comicion_interna":
+    >diputado (diputado_id)
+    >comicion_interna (comiciones_internas_id)
+
+

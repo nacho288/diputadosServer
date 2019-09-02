@@ -54,20 +54,14 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link navBtn" href="{{ route('internas.index') }}">
                     Estructura administrativa
                     </a>
-                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item disabled">no disponible</a>
-                    </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle navBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Estructura política
+                <li class="nav-item">
+                    <a class="nav-link navBtn" href="{{ route('bloques.index') }}">
+                    Estructura parlamentaria
                     </a>
-                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item disabled" >no disponible</a>
-                    </div>
                 </li>
 
             </ul>

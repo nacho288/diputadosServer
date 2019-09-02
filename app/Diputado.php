@@ -10,7 +10,7 @@ class Diputado extends Model
         'nombre',
         'apellido',
         'dni',
-        'fecha_naciminento',
+        'fecha_nacimiento',
         'estado_civil',
         'domicilio',
         'foto',
@@ -26,5 +26,26 @@ class Diputado extends Model
         'telefono_particular_secretaria',
         'telefono_celular_secretaria',
         'email_secretaria',
+        'subbloque_id'
     ];
+
+    public function bloque()
+    {
+        return $this->belongsTo(Bloque::class);
+    }
+
+    public function subbloque()
+    {
+        return $this->belongsTo(Subbloque::class);
+    }
+
+    public function internas()
+    {
+        return $this->belongsToMany(Interna::class);
+    }
+
+    public function internaTiene($interna_id)
+    {
+        return $this->internas->where('id', $interna_id)->count() > 0;
+    }
 }

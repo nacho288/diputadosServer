@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Diputado;
 use App\Http\Requests\DiputadoRequest;
 use App\Traits\FileOrNull;
+use App\Bloque;
+use App\Interna;
+
+
 
 class DiputadoController extends Controller
 {
@@ -26,7 +30,12 @@ class DiputadoController extends Controller
      */
     public function create()
     {
-        return view('pages.diputados.create');
+        $pack = [
+            'bloques' => Bloque::all(),
+            'internas' => Interna::all()
+        ];
+
+        return view('pages.diputados.create')->with('pack', $pack);
     }
 
     /**
@@ -42,7 +51,11 @@ class DiputadoController extends Controller
 
         $values['foto'] = $this->imageOrNull($request->file('file'));
 
-        Diputado::create($values);
+        $diputado = Diputado::create($values);
+
+        if ($request->internas) {
+            $diputado->internas()->attach($request->internas);
+        }
 
         return view('pages.diputados.result');
     }
@@ -68,7 +81,11 @@ class DiputadoController extends Controller
      */
     public function edit(Diputado $diputado)
     {
-        return view('pages.diputados.edit')->with('diputado', $diputado);
+        $pack= ['diputado' => $diputado,
+                'bloques' => Bloque::all(),
+                'internas' => Interna::all()];
+
+        return view('pages.diputados.edit')->with('pack', $pack);
     }
 
     /**
@@ -93,6 +110,11 @@ class DiputadoController extends Controller
         $diputado
             ->fill($values)
             ->save();
+
+        $diputado->internas()->detach();
+        if ($request->internas) {
+            $diputado->internas()->attach($request->internas);
+        }
 
         return view('pages.diputados.result');
     }

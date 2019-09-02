@@ -35,9 +35,9 @@
   color: white;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+/* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #0c2355 !important;
-}
+} */
 
 @media (min-width: 992px) {
   .animate {

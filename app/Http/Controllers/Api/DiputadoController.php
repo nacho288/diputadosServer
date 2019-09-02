@@ -14,9 +14,10 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return Diputado::orderBy('apellido', 'asc')
+        return Diputado::with('subbloque', 'subbloque.bloque', "internas")->orderBy('apellido', 'asc')
             ->orderBy('nombre', 'asc')
             ->get();
+
     }
 
     /**

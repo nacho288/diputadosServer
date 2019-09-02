@@ -32,7 +32,7 @@ class DiputadoRequest extends FormRequest
                     'nombre' => 'required|string',
                     'apellido' => 'required|string',
                     'dni' => 'required|string',
-                    'fecha_naciminento' => 'required|date',
+                    'fecha_nacimiento' => 'required|date',
                     'estado_civil' => 'required|string',
                     'domicilio' => 'required|string',
                     'domicilio_en_santa_fe' => 'required|string',

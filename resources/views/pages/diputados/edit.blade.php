@@ -6,8 +6,6 @@
 
 @auth
 
-
-
     <div class="row justify-content-center animated fadeIn mt-5 mb-5">
         <div class="col col-lg-6 bg-white rounded shadow">
 
@@ -25,149 +23,275 @@
 
             <div class="row">
                 <div class="col">
-                    <form action="/diputados/{{ $diputado->id}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active blued" id="obligatorios-tab" data-toggle="tab" href="#obligatorios" role="tab" aria-controls="obligatorios" aria-selected="true">Obligatorios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="personales-tab" data-toggle="tab" href="#personales" role="tab" aria-controls="personales" aria-selected="false">Personales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretaria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="internas-tab" data-toggle="tab" href="#internas" role="tab" aria-controls="internas" aria-selected="false">Comisiones internas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <form action="/diputados/{{ $pack['diputado']->id}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+                
+                <div class="tab-content" id="myTabContent">
+
+                    <div class="tab-pane fade show active" id="obligatorios" role="tabpanel" aria-labelledby="obligatorios-tab">
 
                         <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Campos obligatorios:</h4>
+                            </div>
+                        </div>
 
-                            <div class="col-12 col-md-6">
+                        <div class="row">
+                            <div class="col col-lg-12 col-xl">
                                 <div class="form-group">
                                     <label for="nombre">Nombre:</label>
-                                    <input name="nombre" type="text" value="{{ $diputado->nombre}}" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Nombre...">
+                                    <input name="nombre" type="text" value="{{ $pack['diputado']->nombre}}" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Nombre...">
                                     @error('nombre')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="apellido">Apellido:</label>
-                                    <input name="apellido" type="text" value="{{ $diputado->apellido}}" class="form-control" id="apellido" aria-describedby="apellido" placeholder="Apellido...">
+                                    <input name="apellido" type="text" value="{{ $pack['diputado']->apellido}}" class="form-control" id="apellido" aria-describedby="apellido" placeholder="Apellido...">
                                     @error('apellido')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="dni">DNI:</label>
-                                    <input name="dni" type="text" value="{{ $diputado->dni}}" class="form-control" id="dni" aria-describedby="dni" placeholder="DNI...">
+                                    <input name="dni" type="text" value="{{ $pack['diputado']->dni}}" class="form-control" id="dni" aria-describedby="dni" placeholder="DNI...">
                                     @error('dni')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="naciminento">Fecha de naciminento:</label>
-                                    <input name="fecha_naciminento" type="date" value="{{ $diputado->fecha_naciminento}}" class="form-control" id="naciminento" aria-describedby="naciminento" placeholder="Fecha de naciminento...">
-                                    @error('fecha_naciminento')
+                                    <input name="fecha_nacimiento" type="date" value="{{ $pack['diputado']->fecha_nacimiento}}" class="form-control" id="naciminento" aria-describedby="naciminento" placeholder="Fecha de naciminento...">
+                                    @error('fecha_nacimiento')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="estado">Estado civil:</label>
-                                    <input name="estado_civil" type="text" value="{{ $diputado->estado_civil}}" class="form-control" id="estado" aria-describedby="estado" placeholder="Estado civil...">
+                                    <input name="estado_civil" type="text" value="{{ $pack['diputado']->estado_civil}}" class="form-control" id="estado" aria-describedby="estado" placeholder="Estado civil...">
                                     @error('estado_civil')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
+                            </div>
+                            <div class="col col-md-12 col-lg">
                                 <div class="form-group">
                                     <label for="domicilio">Domicilio:</label>
-                                    <input name="domicilio" type="text" value="{{ $diputado->domicilio}}" class="form-control" id="domicilio" aria-describedby="domicilio" placeholder="Domicilio...">
+                                    <input name="domicilio" type="text" value="{{ $pack['diputado']->domicilio}}" class="form-control" id="domicilio" aria-describedby="domicilio" placeholder="Domicilio...">
                                     @error('domicilio')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="enSantaFe">Domicilio en Santa Fe:</label>
-                                    <input name="domicilio_en_santa_fe" type="text" value="{{ $diputado->domicilio_en_santa_fe}}" class="form-control" id="enSantaFe" aria-describedby="enSantaFe" placeholder="Domicilio en Santa Fe:...">
+                                    <input name="domicilio_en_santa_fe" type="text" value="{{ $pack['diputado']->domicilio_en_santa_fe}}" class="form-control" id="enSantaFe" aria-describedby="enSantaFe" placeholder="Domicilio en Santa Fe:...">
                                     @error('domicilio_en_santa_fe')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="localidad">Localidad:</label>
-                                    <input name="localidad" type="text" value="{{ $diputado->localidad}}" class="form-control" id="localidad" aria-describedby="localidad" placeholder="Localidad...">
+                                    <input name="localidad" type="text" value="{{ $pack['diputado']->localidad}}" class="form-control" id="localidad" aria-describedby="localidad" placeholder="Localidad...">
                                     @error('localidad')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="departamento">Departamento:</label>
-                                    <input name="departamento" type="text" value="{{ $diputado->departamento}}" class="form-control" id="departamento" aria-describedby="departamento" placeholder="Departamento...">
+                                    <input name="departamento" type="text" value="{{ $pack['diputado']->departamento}}" class="form-control" id="departamento" aria-describedby="departamento" placeholder="Departamento...">
                                     @error('departamento')
                                         <small id="emailHelp" class="form-text text-muted">Este campo es obligatorio.</small>
                                     @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="particular">Teléfono particular:</label>
-                                    <input name="telefono_particular" type="text" value="{{ $diputado->telefono_particular}}" class="form-control" id="particular" aria-describedby="particular" placeholder="Telefono particular...">
-                                </div>
                             </div>
 
-                            <div class="col-12 col-md-6">
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="personales" role="tabpanel" aria-labelledby="personales-tab">
+
+                        <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Datos personales:</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-lg-12 col-xl">
+                                <div class="form-group">
+                                    <label for="particular">Teléfono particular:</label>
+                                    <input name="telefono_particular" type="text" value="{{ $pack['diputado']->telefono_particular}}" class="form-control" id="particular" aria-describedby="particular" placeholder="Telefono particular...">
+                                </div>
                                 <div class="form-group">
                                     <label for="celular">Teléfono celular:</label>
-                                    <input name="telefono_celular" type="text" value="{{ $diputado->telefono_celular}}" class="form-control" id="celular" aria-describedby="celular" placeholder="Telefono celular...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-mail:</label>
-                                    <input name="email" type="email" value="{{ $diputado->email}}" class="form-control" id="email" aria-describedby="email" placeholder="E-mail...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="profesion">Profesión:</label>
-                                    <input name="profesion" type="text" value="{{ $diputado->profesion}}" class="form-control" id="profesion" aria-describedby="profesion" placeholder="Profesión...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="conyugue">Cónyugue:</label>
-                                    <input name="conyugue" type="text" value="{{ $diputado->conyugue}}" class="form-control" id="conyugue" aria-describedby="conyugue" placeholder="Cónyugue...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="secretaria">Secretaria:</label>
-                                    <input name="secretaria" type="text" value="{{ $diputado->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="telSecretaria">Teléfono particular de secretaria:</label>
-                                    <input name="telefono_particular_secretaria" type="text" value="{{ $diputado->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="celSecretaria">Teléfono celular de secretaria:</label>
-                                    <input name="telefono_celular_secretaria" type="text" value="{{ $diputado->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="emailSecretaria">E-mail de secretaria:</label>
-                                    <input name="email_secretaria" type="text" value="{{ $diputado->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretaria...">
+                                    <input name="telefono_celular" type="text" value="{{ $pack['diputado']->telefono_celular}}" class="form-control" id="celular" aria-describedby="celular" placeholder="Telefono celular...">
                                 </div>
                                 <div class="form-group">
                                     <label for="imagen">Foto:</label>
                                     <input name="file" type="file" class="form-control-file" id="archivo" aria-describedby="archivo" placeholder="Foto...">
                                     <small id="emailHelp" class="form-text text-muted">Si desea sustituir la imagen, complete este campo, de lo contrario déjelo vacio.</small>
                                 </div>
-                                <div class="form-check mt-1 mb-3">
+                                <div class="form-check mt-0 mb-2">
                                     <input name="sin" type="checkbox" class="form-check-input" id="exampleCheck2">
                                     <label class="form-check-label" for="exampleCheck2">Sin imagen</label>
                                 </div>
                             </div>
-                            
+                            <div class="col col-lg-12 col-xl">
+                                <div class="form-group">
+                                    <label for="email">E-mail:</label>
+                                    <input name="email" type="email" value="{{ $pack['diputado']->email}}" class="form-control" id="email" aria-describedby="email" placeholder="E-mail...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profesion">Profesión:</label>
+                                    <input name="profesion" type="text" value="{{ $pack['diputado']->profesion}}" class="form-control" id="profesion" aria-describedby="profesion" placeholder="Profesión...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="conyugue">Cónyugue:</label>
+                                    <input name="conyugue" type="text" value="{{ $pack['diputado']->conyugue}}" class="form-control" id="conyugue" aria-describedby="conyugue" placeholder="Cónyugue...">
+                                </div>
+                            </div>  
+                        </div>
+  
+
+                    </div>
+
+                    <div class="tab-pane fade" id="secretaria" role="tabpanel" aria-labelledby="secretaria-tab">
+
+                        <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Datos de secretario/a:</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-lg-12 col-xl">
+                                 <div class="form-group">
+                                    <label for="secretaria">Secretaria:</label>
+                                    <input name="secretaria" type="text" value="{{ $pack['diputado']->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telSecretaria">Teléfono particular de secretaria:</label>
+                                    <input name="telefono_particular_secretaria" type="text" value="{{ $pack['diputado']->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria...">
+                                </div>
+                            </div>
+                            <div class="col col-lg-12 col-xl">
+                                <div class="form-group">
+                                    <label for="celSecretaria">Teléfono celular de secretaria:</label>
+                                    <input name="telefono_celular_secretaria" type="text" value="{{ $pack['diputado']->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailSecretaria">E-mail de secretaria:</label>
+                                    <input name="email_secretaria" type="text" value="{{ $pack['diputado']->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretaria...">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="bloques" role="tabpanel" aria-labelledby="bloques-tab">
+
+                        <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Bloque y Sub-bloque:</h4>
+                            </div>
                         </div>
 
                         <div class="row justify-content-center">
-                            <div class="col te">
-                                
+
+                            @foreach ($pack['bloques'] as $bloque)
+                            <div class="col col-md-12 col-xl-5 m-3 p-3 border shadow-sm">
+                                <h5>{{$bloque->nombre}}</h5>
+                                @foreach ($bloque->subbloques as $subbloque)
+                                 <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="subbloque_id" id="subbloque_id_{{$subbloque->id}}" value="{{$subbloque->id}}"
+                                    @if ($subbloque->id == $pack['diputado']->subbloque_id)
+                                    checked    
+                                    @endif
+                                    >
+                                    <label class="form-check-label" for="subbloque_id_{{$subbloque->id}}">
+                                        {{$subbloque->nombre}}
+                                    </label>
+                                </div>
+                                @endforeach
                             </div>
+                            @endforeach
+
+                            
                         </div>
-                        
+
+                    </div>
+
+                    <div class="tab-pane fade" id="internas" role="tabpanel" aria-labelledby="internas-tab">
+
                         <div class="row">
-                            <div class="col text-center">
-                                <hr>
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Comiciones internas:</h4>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-dark">Guardar</button>
+
+                        @foreach ($pack['internas'] as $interna)
+                        <div class="row justify-content-center ml-3">
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <h5>
+                                        <input class="form-check-input" name='internas[]' type="checkbox" value="{{$interna->id}}" id="defaultChecki{{$interna->id}}"
+                                        @if ($pack['diputado']->internaTiene($interna->id))
+                                        checked    
+                                        @endif
+                                        >
+                                        <label class="form-check-label" for="defaultChecki{{$interna->id}}">
+                                        {{$interna->nombre}}
+                                        </label>
+                                    </h5>
+                                </div>
                             </div>
+                           
                         </div>
-                        
-                    </form>
+                         @endforeach
+
+                    </div>
+
                 </div>
+
+                <div class="row mb-3">
+                    <div class="col text-center">
+                        <hr>
+                    </div>
                 </div>
-            </div>
+                <div class="row mb-3">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btnColor">Guardar</button>
+                    </div>
+                </div>
+
+            </form>
+                
+                
+
+        </div>
 
 
         

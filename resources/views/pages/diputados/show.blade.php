@@ -11,7 +11,7 @@
 
     <div class="row justify-content-center mt-5 animated fadeIn mb-5">
 
-        <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
+        <div class="col col-md-8 col-lg-8 col-xl-6 bg-white rounded shadow-sm">
 
 
             
@@ -72,7 +72,13 @@
                         <li class="nav-item">
                             <a class="nav-link blued" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Secretaria</a>
                         </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="internas-tab" data-toggle="tab" href="#internas" role="tab" aria-controls="internas" aria-selected="false">Comisiones internas</a>
+                        </li>
+                    </ul>
 
 
                         <div class="tab-content" id="myTabContent">
@@ -101,7 +107,7 @@
                                         </tr>
                                         <tr>
                                         <td class="font-weight-bold">fecha naciminento:</td>
-                                        <td>{{  $diputado->fecha_naciminento }}</td>
+                                        <td>{{  $diputado->fecha_nacimiento }}</td>
                                         </tr>
                                         <tr>
                                         <td class="font-weight-bold">estado civil:</td>
@@ -173,29 +179,154 @@
                                 
                                 <div class="row">
                                     <div class="col mt-3 mb-3">
-                                        <h4 class="blued mb-0">Datos de secretaria</h4>
+                                        <h4 class="blued mb-0">Datos de secretario/a</h4>
                                     </div>
                                 </div>
                                 
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                        <td>Secretaria:</td>
+                                        <td>Secretario/a:</td>
                                         <td>{{  $diputado->secretaria }}</td>
                                         </tr>
-                                        <td>Teléfono particular secretaria:</td>
+                                        <td>Teléfono particular secretario/a:</td>
                                         <td>{{  $diputado->telefono_particular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Teléfono celular secretaria:</td>
+                                        <td>Teléfono celular secretario/a:</td>
                                         <td>{{  $diputado->telefono_celular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Email secretaria:</td>
+                                        <td>Email secretario/a:</td>
                                         <td>{{  $diputado->email_secretaria }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+
+                            </div>
+
+                            <div class="tab-pane fade " id="bloques" role="tabpanel" aria-labelledby="bloques-tab">
+                                @if ($diputado->subbloque)
+                                <div class="row">
+
+                                    <div class="col col-lg-12 col-xl m-3 border shadow-sm rounded">
+                                        
+                                        <div class="row">
+                                            <div class="col mt-3 mb-3">
+                                                <h4 class="blued mb-0">Bloque:</h4>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row align-items-center">
+                                            <div class="col col-auto">
+                                                <img class="rounded-circle mr-0 border shadow-sm" height="60" width="60"
+                                                @if ($diputado->subbloque->bloque->logo)
+                                                src="{{$diputado->subbloque->bloque->logo}}" 
+                                                @else
+                                                src="{{ URL::asset('img/avatar.jpg') }}"
+                                                @endif
+                                                alt="">
+                                            </div>
+                                            <div class="col p-0">
+                                                <h5 class="mb-0">{{$diputado->subbloque->bloque->nombre}}</h5>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col col-lg-12 col-xl m-3 border shadow-sm rounded">
+                                        
+                                        <div class="row">
+                                            <div class="col mt-3 mb-3">
+                                                <h4 class="blued mb-0">Sub-bloque:</h4>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row align-items-center">
+                                            <div class="col col-auto ">
+                                                <img class="rounded-circle m-0 border shadow-sm" height="60" width="60"
+                                                @if ($diputado->subbloque->bloque->logo)
+                                                src="{{$diputado->subbloque->bloque->logo}}" 
+                                                @else
+                                                src="{{ URL::asset('img/avatar.jpg') }}"
+                                                @endif
+                                                alt="">
+                                            </div>
+                                            <div class="col p-0">
+                                                <h5 class="mb-0">{{$diputado->subbloque->nombre}}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3 mb-3 ml-1">
+                                            <div class="col p-0">
+                                                <h5 class="mb-0"><b>Rol: </b>
+                                                    @if ($diputado->subbloque->presidente_id == $diputado->id)
+                                                    Presidente.   
+                                                    @else
+                                                    Miembro.                                               
+                                                    @endif
+                                                </h5>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                @else
+
+                                <div class="row my-4">
+                                    <div class="col text-center">
+                                        <h4 class="text-secondary font-italic">...Sin asignar...</h4>
+                                    </div>
+                                </div>
+                                    
+                                @endif
+
+                            </div>
+
+                            <div class="tab-pane fade" id="internas" role="tabpanel" aria-labelledby="internas-tab">
+
+                                @if (count($diputado->internas) != 0)
+                                
+                                    <div class="row">
+                                        @foreach ($diputado->internas as $interna)
+                                        <div class="col col-lg m-3 border shadow-sm p-3">
+                                            
+                                            <div class="row">
+                                                <div class="col mt-3 mb-3">
+                                                    <h5 class="blued mb-0">{{$interna->nombre}}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3 mb-3 ml-1">
+                                                <div class="col p-0">
+                                                    <h6 class="mb-0"><b>Rol: </b>
+                                                        @if ($interna->presidente_id == $diputado->id)
+                                                        Presidente.
+                                                        @else
+                                                            @if ($interna->vice_id == $diputado->id)
+                                                            Vicepresidente. 
+                                                            @else
+                                                            Miembro.
+                                                            @endif                                               
+                                                        @endif
+                                                    </h6>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        @endforeach
+                                    </div>
+
+                                    
+                                
+
+                                @else
+                                    <div class="row my-4">
+                                        <div class="col text-center">
+                                            <h4 class="text-secondary font-italic">...Sin asignar...</h4>
+                                        </div>
+                                    </div>
+                                @endif
 
 
                             </div>
