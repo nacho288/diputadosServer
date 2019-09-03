@@ -32,4 +32,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('internas', 'InternaController');
     Route::resource('especiales', 'EspecialeController');
     Route::resource('autoridades', 'AutoridadeController');
+    Route::resource('users', 'UserController');
 });
