@@ -14,10 +14,11 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return Diputado::with('subbloque', 'subbloque.bloque', "internas")->orderBy('apellido', 'asc')
+        return Diputado::with('subbloque.bloque')
+            ->select(['id', 'nombre', 'apellido', 'foto'])
+            ->orderBy('apellido', 'asc')
             ->orderBy('nombre', 'asc')
             ->get();
-
     }
 
     /**
@@ -29,6 +30,9 @@ class DiputadoController extends Controller
      */
     public function show(Diputado $diputado)
     {
+        $diputado->subbloque;
+        $diputado->subbloque->bloque;
+
         return $diputado;
     }
 }
