@@ -48,4 +48,14 @@ class Diputado extends Model
     {
         return $this->internas->where('id', $interna_id)->count() > 0;
     }
+
+    public function especiales()
+    {
+        return $this->belongsToMany(Especiale::class);
+    }
+
+    public function especialTiene($especiale_id)
+    {
+        return $this->especiales->where('id', $especiale_id)->count() > 0;
+    }
 }

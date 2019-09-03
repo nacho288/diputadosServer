@@ -26,8 +26,8 @@ class CreateInternasTable extends Migration
             $table->string('email')->nullable();
             $table->timestamps();
 
-            $table->foreign('presidente')->references('id')->on('diputados');
-            $table->foreign('vice')->references('id')->on('diputados');
+            $table->foreign('presidente_id')->references('id')->on('diputados');
+            $table->foreign('vice_id')->references('id')->on('diputados');
 
         });
     }

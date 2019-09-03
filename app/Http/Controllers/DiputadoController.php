@@ -6,6 +6,7 @@ use App\Diputado;
 use App\Http\Requests\DiputadoRequest;
 use App\Traits\FileOrNull;
 use App\Bloque;
+use App\Especiale;
 use App\Interna;
 
 
@@ -32,7 +33,8 @@ class DiputadoController extends Controller
     {
         $pack = [
             'bloques' => Bloque::all(),
-            'internas' => Interna::all()
+            'internas' => Interna::all(),
+            'especiales' => Especiale::all()
         ];
 
         return view('pages.diputados.create')->with('pack', $pack);
@@ -55,6 +57,10 @@ class DiputadoController extends Controller
 
         if ($request->internas) {
             $diputado->internas()->attach($request->internas);
+        }
+
+        if ($request->especiales) {
+            $diputado->especiales()->attach($request->especiales);
         }
 
         return view('pages.diputados.result');
@@ -83,7 +89,9 @@ class DiputadoController extends Controller
     {
         $pack= ['diputado' => $diputado,
                 'bloques' => Bloque::all(),
-                'internas' => Interna::all()];
+                'internas' => Interna::all(),
+                'especiales' => Especiale::all()
+            ];
 
         return view('pages.diputados.edit')->with('pack', $pack);
     }
@@ -114,6 +122,11 @@ class DiputadoController extends Controller
         $diputado->internas()->detach();
         if ($request->internas) {
             $diputado->internas()->attach($request->internas);
+        }
+
+        $diputado->especiales()->detach();
+        if ($request->especiales) {
+            $diputado->especiales()->attach($request->especiales);
         }
 
         return view('pages.diputados.result');

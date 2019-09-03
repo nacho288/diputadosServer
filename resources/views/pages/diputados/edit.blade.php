@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link blued" id="internas-tab" data-toggle="tab" href="#internas" role="tab" aria-controls="internas" aria-selected="false">Comisiones internas</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="especiales-tab" data-toggle="tab" href="#especiales" role="tab" aria-controls="especiales" aria-selected="false">Comisiones especiales</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -264,6 +267,37 @@
                                         >
                                         <label class="form-check-label" for="defaultChecki{{$interna->id}}">
                                         {{$interna->nombre}}
+                                        </label>
+                                    </h5>
+                                </div>
+                            </div>
+                           
+                        </div>
+                         @endforeach
+
+                    </div>
+
+                    <div class="tab-pane fade" id="especiales" role="tabpanel" aria-labelledby="especiales-tab">
+
+                        <div class="row">
+                            <div class="col mt-3 mb-3">
+                                <h4 class="blued mb-0">Comiciones especiales:</h4>
+                            </div>
+                        </div>
+
+                        @foreach ($pack['especiales'] as $especial)
+                        <div class="row justify-content-center ml-3">
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <h5>
+                                        <input class="form-check-input" name='especiales[]' type="checkbox" value="{{$especial->id}}" id="defaultChecki{{$especial->id}}"
+                                        @if ($pack['diputado']->especialTiene($especial->id))
+                                        checked    
+                                        @endif
+                                        >
+                                        <label class="form-check-label" for="defaultChecki{{$especial->id}}">
+                                        {{$especial->nombre}}
                                         </label>
                                     </h5>
                                 </div>

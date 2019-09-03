@@ -54,8 +54,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="presidente_id">Vicepresidente:</label>
-                                    <select name="presidente_id" class="form-control" id="presidente_id">
+                                    <label for="vice_id">Vicepresidente:</label>
+                                    <select name="vice_id" class="form-control" id="vice_id">
                                         <option value="{{null}}">sin definir</option>
                                         @foreach ($interna->diputados as $diputado)
                                             <option value="{{$diputado->id}}"

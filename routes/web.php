@@ -30,4 +30,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('bloques', 'BloqueController');
     Route::resource('subbloques', 'SubbloqueController');
     Route::resource('internas', 'InternaController');
+    Route::resource('especiales', 'EspecialeController');
+    Route::resource('autoridades', 'AutoridadeController');
 });

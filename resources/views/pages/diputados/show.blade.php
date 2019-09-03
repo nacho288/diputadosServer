@@ -78,6 +78,9 @@
                         <li class="nav-item">
                             <a class="nav-link blued" id="internas-tab" data-toggle="tab" href="#internas" role="tab" aria-controls="internas" aria-selected="false">Comisiones internas</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link blued" id="especiales-tab" data-toggle="tab" href="#especiales" role="tab" aria-controls="especiales" aria-selected="false">Comisiones especiales</a>
+                        </li>
                     </ul>
 
 
@@ -319,6 +322,46 @@
 
                                     
                                 
+
+                                @else
+                                    <div class="row my-4">
+                                        <div class="col text-center">
+                                            <h4 class="text-secondary font-italic">...Sin asignar...</h4>
+                                        </div>
+                                    </div>
+                                @endif
+
+
+                            </div>
+
+                            <div class="tab-pane fade" id="especiales" role="tabpanel" aria-labelledby="especiales-tab">
+
+                                <div class="row">
+                                    <div class="col mt-3">
+                                        <h4 class="blued mb-0">Comisiones especiales:</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <hr>
+                                    </div>
+                                </div>
+
+
+                                @if (count($diputado->especiales) != 0)
+                                
+                                    <div class="row justify-content-center">
+                                        <div class="col">
+                                            <ul>
+                                            @foreach ($diputado->especiales as $especial)
+                                                <li>
+                                                    <h5 class="blued mb-0">{{$especial->nombre}}</h5>
+                                                </li>
+                                            @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
 
                                 @else
                                     <div class="row my-4">

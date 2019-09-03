@@ -54,16 +54,23 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link navBtn" href="{{ route('internas.index') }}">
+                    <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Estructura administrativa
                     </a>
+                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('autoridades.index') }}">Autoridades</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link navBtn" href="{{ route('bloques.index') }}">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle navBtn mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Estructura parlamentaria
                     </a>
+                    <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('bloques.index') }}">Bloques y sub-bloques</a>
+                    <a class="dropdown-item" href="{{ route('internas.index') }}">Comisiones internas</a>
+                    <a class="dropdown-item" href="{{ route('especiales.index') }}">Comisiones especiales</a>
+                    </div>
                 </li>
-
             </ul>
             <ul class="navbar-nav mr-2">
                 <li class="nav-item dropdown">
