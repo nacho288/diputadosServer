@@ -37,7 +37,6 @@ class CategoriaController extends Controller
      */
     public function store(CategoriaRequest $request)
     {
-        // $categoria = categoria::create($request->all());
         Categoria::create($request->all());
 
         return view('pages.categorias.result');
