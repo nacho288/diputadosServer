@@ -3,9 +3,6 @@
 @section('title', 'Diputados app')
 
 @section('content')
-
-@auth
-
     <div class="row justify-content-center animated fadeIn mt-5 mb-5">
         <div class="col col-lg-6 bg-white rounded shadow">
 
@@ -48,7 +45,7 @@
 
             <form action="/diputados" method="POST" enctype="multipart/form-data">
             @csrf
-                
+
                 <div class="tab-content" id="myTabContent">
 
                     <div class="tab-pane fade show active" id="obligatorios" role="tabpanel" aria-labelledby="obligatorios-tab">
@@ -169,10 +166,8 @@
                                     <label for="conyugue">Cónyugue:</label>
                                     <input name="conyugue" type="text" class="form-control" id="conyugue" aria-describedby="conyugue" placeholder="Cónyugue...">
                                 </div>
-                            </div>  
+                            </div>
                         </div>
-  
-
                     </div>
 
                     <div class="tab-pane fade" id="secretaria" role="tabpanel" aria-labelledby="secretaria-tab">
@@ -232,7 +227,7 @@
                             </div>
                             @endforeach
 
-                            
+
                         </div>
 
                     </div>
@@ -258,7 +253,7 @@
                                     </h5>
                                 </div>
                             </div>
-                           
+
                         </div>
                          @endforeach
 
@@ -285,11 +280,12 @@
                                     </h5>
                                 </div>
                             </div>
-                           
+
                         </div>
                          @endforeach
 
                     </div>
+
 
                 </div>
 
@@ -303,18 +299,7 @@
                         <button type="submit" class="btn btnColor">Guardar</button>
                     </div>
                 </div>
-
             </form>
-                
-                
-
         </div>
-
-
-        
-
     </div>
-@endauth
-
-
 @endsection

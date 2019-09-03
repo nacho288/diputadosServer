@@ -15,7 +15,7 @@ class DiputadoController extends Controller
     public function index()
     {
         return Diputado::with('subbloque.bloque')
-            ->select(['id', 'nombre', 'apellido', 'foto'])
+            ->select(['id', 'nombre', 'apellido', 'foto', 'subbloque_id'])
             ->orderBy('apellido', 'asc')
             ->orderBy('nombre', 'asc')
             ->get();
