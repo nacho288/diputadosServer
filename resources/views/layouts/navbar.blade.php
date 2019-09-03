@@ -71,6 +71,12 @@
                     <a class="dropdown-item" href="{{ route('especiales.index') }}">Comisiones especiales</a>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('users.index') }}" class="nav-link navBtn">
+                        Usuarios
+                    </a>
+                </li>
             </ul>
             <ul class="navbar-nav mr-2">
                 <li class="nav-item dropdown">
