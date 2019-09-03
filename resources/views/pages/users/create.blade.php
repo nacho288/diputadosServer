@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    {{ Aire::submit('Enviar')->addClass('btnColor') }}
+                    {{ Aire::submit('Enviar') }}
                 </div>
             </div>
             {{ Aire::close() }}
