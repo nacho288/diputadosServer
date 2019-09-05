@@ -14,11 +14,11 @@ class InternaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('pages.internas.index')->with('internas', Interna::all()->sortBy("nombre"));
+        return view('pages.internas.index', ['internas' => Interna::orderBy('nombre', 'asc')->get()]);
     }
 
     /**
@@ -35,6 +35,7 @@ class InternaController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,6 +54,7 @@ class InternaController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Interna  $interna
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Interna $interna)
@@ -64,7 +66,8 @@ class InternaController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Interna  $interna
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Interna $interna)
     {
@@ -76,7 +79,8 @@ class InternaController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Interna  $interna
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Interna $interna)
     {
@@ -97,6 +101,7 @@ class InternaController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Interna  $interna
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Interna $interna)

@@ -34,7 +34,7 @@ class DiputadoController extends Controller
         $pack = [
             'bloques' => Bloque::all(),
             'internas' => Interna::all(),
-            'especiales' => Especiale::all()
+            'especiales' => Especiale::all(),
         ];
 
         return view('pages.diputados.create')->with('pack', $pack);
@@ -87,11 +87,12 @@ class DiputadoController extends Controller
      */
     public function edit(Diputado $diputado)
     {
-        $pack= ['diputado' => $diputado,
-                'bloques' => Bloque::all(),
-                'internas' => Interna::all(),
-                'especiales' => Especiale::all()
-            ];
+        $pack= [
+            'diputado' => $diputado,
+            'bloques' => Bloque::all(),
+            'internas' => Interna::all(),
+            'especiales' => Especiale::all(),
+        ];
 
         return view('pages.diputados.edit')->with('pack', $pack);
     }

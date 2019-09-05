@@ -27,6 +27,7 @@ class AddSubbloqueToDiputados extends Migration
     public function down()
     {
         Schema::table('diputados', function (Blueprint $table) {
+            $table->dropForeign(['subbloque_id']);
             $table->dropColumn('subbloque_id');
         });
     }

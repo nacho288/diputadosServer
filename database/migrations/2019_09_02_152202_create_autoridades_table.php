@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAutoridadesTable extends Migration
 {
@@ -15,20 +15,26 @@ class CreateAutoridadesTable extends Migration
     {
         Schema::create('autoridades', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('presidente_id')->unsigned()->nullable();
-            $table->bigInteger('vice_id')->unsigned()->nullable();
-            $table->bigInteger('vice2_id')->unsigned()->nullable();
-            $table->bigInteger('parlamentario_id')->unsigned()->nullable();
-            $table->bigInteger('admistrativo_id')->unsigned()->nullable();
-            $table->bigInteger('subsecretario_id')->unsigned()->nullable();
-            $table->timestamps();
 
+            $table->unsignedBigInteger('presidente_id')->nullable();
             $table->foreign('presidente_id')->references('id')->on('diputados');
+
+            $table->unsignedBigInteger('vice_id')->nullable();
             $table->foreign('vice_id')->references('id')->on('diputados');
+
+            $table->unsignedBigInteger('vice2_id')->nullable();
             $table->foreign('vice2_id')->references('id')->on('diputados');
+
+            $table->unsignedBigInteger('parlamentario_id')->nullable();
             $table->foreign('parlamentario_id')->references('id')->on('diputados');
+
+            $table->unsignedBigInteger('admistrativo_id')->nullable();
             $table->foreign('admistrativo_id')->references('id')->on('diputados');
+
+            $table->unsignedBigInteger('subsecretario_id')->nullable();
             $table->foreign('subsecretario_id')->references('id')->on('diputados');
+
+            $table->timestamps();
         });
     }
 

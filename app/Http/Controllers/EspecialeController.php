@@ -10,11 +10,11 @@ class EspecialeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('pages.especiales.index')->with('especiales', Especiale::all()->sortBy("nombre"));
+        return view('pages.especiales.index', ['especiales' => Especiale::orderBy('nombre', 'asc')->get()]);
     }
 
     /**
@@ -60,7 +60,8 @@ class EspecialeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Especial  $especial
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function edit(Especiale $especiale)
     {

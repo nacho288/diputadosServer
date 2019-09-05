@@ -9,14 +9,12 @@ use App\Traits\FileOrNull;
 
 class SubbloqueController extends Controller
 {
-
     use FileOrNull;
-
 
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -69,7 +67,7 @@ class SubbloqueController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Subbloque  $subbloque
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Subbloque $subbloque)
     {
@@ -81,6 +79,7 @@ class SubbloqueController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Subbloque  $subbloque
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Subbloque $subbloque)
@@ -104,6 +103,7 @@ class SubbloqueController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Subbloque  $subbloque
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Subbloque $subbloque)
