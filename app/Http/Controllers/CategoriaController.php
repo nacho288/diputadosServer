@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use App\Http\Requests\CategoriaRequest;
-use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
@@ -33,7 +32,7 @@ class CategoriaController extends Controller
      *
      * @param  \App\Http\Requests\CategoriaRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(CategoriaRequest $request)
     {
@@ -72,7 +71,7 @@ class CategoriaController extends Controller
      * @param  \App\Http\Requests\CategoriaRequest  $request
      * @param  \App\Categoria  $categoria
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\View\View
      */
     public function update(CategoriaRequest $request, Categoria $categoria)
     {

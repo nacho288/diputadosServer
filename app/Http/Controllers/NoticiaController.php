@@ -35,7 +35,7 @@ class NoticiaController extends Controller
      *
      * @param  \App\Http\Requests\NoticiaRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(NoticiaRequest $request)
     {
@@ -92,7 +92,7 @@ class NoticiaController extends Controller
      * @param  \App\Http\Requests\NoticiaRequest  $request
      * @param  \App\Noticia  $noticia
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(NoticiaRequest $request, Noticia $noticia)
     {
@@ -115,6 +115,7 @@ class NoticiaController extends Controller
             ->fill($values)
             ->save();
 
+        // $noticia->categorias()->sync($request->categoria);
         $noticia->categorias()->detach();
         $noticia->categorias()->attach($request->categoria);
 

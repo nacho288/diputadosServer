@@ -38,7 +38,7 @@ class BloqueController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -84,7 +84,7 @@ class BloqueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Bloque  $bloque
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Bloque $bloque)
     {

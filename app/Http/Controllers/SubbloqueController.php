@@ -24,7 +24,7 @@ class SubbloqueController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -35,7 +35,8 @@ class SubbloqueController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -56,7 +57,8 @@ class SubbloqueController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Subbloque  $subbloque
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function show(Subbloque $subbloque)
     {
@@ -80,7 +82,7 @@ class SubbloqueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Subbloque  $subbloque
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Subbloque $subbloque)
     {

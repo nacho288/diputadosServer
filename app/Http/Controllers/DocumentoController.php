@@ -34,7 +34,7 @@ class DocumentoController extends Controller
      *
      * @param  \App\Http\Requests\DocumentoRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(DocumentoRequest $request)
     {
@@ -80,7 +80,7 @@ class DocumentoController extends Controller
      * @param  \App\Http\Requests\DocumentoRequest  $request
      * @param  \App\Documento  $documento
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(DocumentoRequest $request, Documento $documento)
     {

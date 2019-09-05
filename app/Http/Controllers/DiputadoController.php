@@ -45,7 +45,7 @@ class DiputadoController extends Controller
      *
      * @param  \App\Http\Requests\DiputadoRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(DiputadoRequest $request)
     {
@@ -103,7 +103,7 @@ class DiputadoController extends Controller
      * @param  \App\Http\Requests\DiputadoRequest  $request
      * @param  \App\Diputado  $diputado
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(DiputadoRequest $request, Diputado $diputado)
     {

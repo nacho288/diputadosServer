@@ -33,7 +33,7 @@ class AutoridadeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Autoridade  $autoridade
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Autoridade $autoridade)
     {

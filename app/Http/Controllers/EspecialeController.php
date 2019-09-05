@@ -31,7 +31,8 @@ class EspecialeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -49,6 +50,7 @@ class EspecialeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Especiale  $especial
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Especiale $especial)
@@ -59,7 +61,7 @@ class EspecialeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Especial  $especial
+     * @param  \App\Especiale  $especial
      *
      * @return \Illuminate\View\View
      */
@@ -73,7 +75,8 @@ class EspecialeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Especiale  $especial
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View
      */
     public function update(Request $request, Especiale $especiale)
     {
@@ -93,7 +96,8 @@ class EspecialeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Especial  $especial
+     * @param  \App\Especiale  $especial
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Especiale $especiale)

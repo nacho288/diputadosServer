@@ -35,7 +35,7 @@ class EventoController extends Controller
      *
      * @param  \App\Http\Requests\EventoRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(EventoRequest $request)
     {
@@ -89,7 +89,7 @@ class EventoController extends Controller
      * @param  \App\Http\Requests\EventoRequest  $request
      * @param  \App\Evento  $evento
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function update(EventoRequest $request, Evento $evento)
     {
