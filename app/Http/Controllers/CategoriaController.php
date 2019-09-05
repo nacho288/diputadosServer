@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('pages.categorias.index', ['categorias' => Categoria::all()]);
+        return view('pages.categorias.index', ['categorias' => Categoria::all()->sortBy("apellido")]);
     }
 
     /**

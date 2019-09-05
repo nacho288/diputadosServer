@@ -6,13 +6,13 @@
 
 @auth
     <div class="row justify-content-center  mt-5 animated fadeIn">
-        <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
+        <div class="col col-auto bg-white rounded shadow-sm">
             
              <div class="row mb-0 align-items-center">
                 <div class="col mt-3">
                     <h2 class="blued mb-0">Listado de categorias</h2>
                 </div>
-                <div class="col col-auto mt-3 text-right p-0 mr-3">
+                <div class="col col-auto mt-4 text-right p-0 mr-3">
                     <a class="btn btn-sm btnColor" href="/categorias/create">Agregar</a>
                 </div>
             </div>

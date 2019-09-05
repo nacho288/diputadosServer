@@ -20,7 +20,7 @@ class BloqueController extends Controller
     public function index()
     {
         $bloques = Bloque::with('subbloques.diputados')->get();
-        return view('pages.bloques.index')->with('bloques', $bloques);
+        return view('pages.bloques.index')->with('bloques', $bloques->sortBy("nombre"));
     }
 
     /**

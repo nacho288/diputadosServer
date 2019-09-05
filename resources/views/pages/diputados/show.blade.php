@@ -11,7 +11,7 @@
 
     <div class="row justify-content-center mt-5 animated fadeIn mb-5">
 
-        <div class="col col-md-8 col-lg-8 col-xl-6 bg-white rounded shadow-sm">
+        <div class="col col-auto bg-white rounded shadow-sm">
 
 
             
@@ -217,13 +217,13 @@
                                         
                                         <div class="row">
                                             <div class="col mt-3 mb-3">
-                                                <h4 class="blued mb-0">Bloque:</h4>
+                                                <h5 class="blued mb-0">Bloque:</h5>
                                             </div>
                                         </div>
                                         
                                         <div class="row align-items-center">
                                             <div class="col col-auto">
-                                                <img class="rounded-circle mr-0 border shadow-sm" height="60" width="60"
+                                                <img class="rounded-circle mr-0 border shadow-sm" height="50" width="50"
                                                 @if ($diputado->subbloque->bloque->logo)
                                                 src="{{$diputado->subbloque->bloque->logo}}" 
                                                 @else
@@ -242,13 +242,13 @@
                                         
                                         <div class="row">
                                             <div class="col mt-3 mb-3">
-                                                <h4 class="blued mb-0">Sub-bloque:</h4>
+                                                <h5 class="blued mb-0">Sub-bloque:</h5>
                                             </div>
                                         </div>
                                         
                                         <div class="row align-items-center">
                                             <div class="col col-auto ">
-                                                <img class="rounded-circle m-0 border shadow-sm" height="60" width="60"
+                                                <img class="rounded-circle m-0 border shadow-sm" height="50" width="50"
                                                 @if ($diputado->subbloque->bloque->logo)
                                                 src="{{$diputado->subbloque->bloque->logo}}" 
                                                 @else

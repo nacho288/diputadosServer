@@ -21,6 +21,10 @@
     
 }
 
+.badgeSize {
+    font-size: 13px;
+}
+
 .listText{
   font-size: 16px;
 }
@@ -81,4 +85,14 @@
 .slideIn {
   -webkit-animation-name: slideIn;
   animation-name: slideIn;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
 }

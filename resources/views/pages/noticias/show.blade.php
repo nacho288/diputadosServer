@@ -32,19 +32,18 @@
                 </div>
             </div>
 
-
-            <div class="row">
-
-                <div class="col-12 col-md">
-                    <h5 class="text-justify">{{$noticia->cuerpo}}</h5>
-                </div>
-
-                @if ($noticia->imagen)
-                   <div class="col-12 col-md-6">
+            @if ($noticia->imagen)
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
                     <img class="img-fluid" src="{{$noticia->imagen}}" alt="">
                 </div> 
-                @endif
+            </div>
+            @endif
 
+            <div class="row mt-3">
+                <div class="col">
+                    <h5 class="text-justify">{{$noticia->cuerpo}}</h5>
+                </div>
             </div>
 
             <div class="row">

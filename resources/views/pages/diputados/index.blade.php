@@ -7,13 +7,13 @@
 @auth
       <div class="row justify-content-center mt-5 animated fadeIn">
 
-        <div class="col mx-sm-2 col-md-8 col-lg-6 bg-white rounded shadow-sm">
+        <div class="col col-auto bg-white rounded shadow-sm">
 
             <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
                 <div class="col mt-3">
                     <h2 class="blued mb-0">Listado de diputados</h2>
                 </div>
-                <div class="col mt-3 text-right">
+                <div class="col col-auto mt-3 text-right">
                     <a class="btn btn-sm btnColor" href="/diputados/create">Agregar</a>
                 </div>
             </div>
@@ -25,8 +25,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">Diputados</th>
-                                <th scope="col">DNI</th>
-                                <th scope="col">Detalles</th>
+                                <th scope="col">Bloque</th>
+                                <th scope="col ml-4"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,10 +38,10 @@
                                     @else
                                     src="{{ URL::asset('img/avatar.jpg') }}"
                                     @endif
-                                    alt=""><b>{{  $diputado->apellido }} {{  $diputado->nombre }}</b></td>
-                                <td>{{  $diputado->dni }}</td>
+                                    alt=""><b class="mr-4">{{  $diputado->apellido }} {{  $diputado->nombre }}</b></td>
+                                <td>{{  $diputado->subbloque['bloque']['nombre'] }}</td>
                                 <td>
-                                    <a href="/diputados/{{  $diputado->id }}" class="badge btnColor">Detalles</a>
+                                    <a href="/diputados/{{  $diputado->id }}" class="ml-4 badge btnColor">Detalles</a>
                                 </td>
                             </tr>
                             @endforeach

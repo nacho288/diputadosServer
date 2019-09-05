@@ -7,7 +7,7 @@
 @auth
     <div class="row justify-content-center mt-5 animated fadeIn">
 
-        <div class="col mx-sm-2 col-md-8 col-lg-6 bg-white rounded shadow-sm">
+        <div class="col mx-sm-2 col-md-8 col-lg-7 bg-white rounded shadow-sm">
 
             <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
                 <div class="col mt-3">
@@ -43,7 +43,7 @@
                                         <td>No</td>
                                     @endif
                                     <td>
-                                        <a href="/eventos/{{  $evento->id }}" class="badge btnColor">Detalles</a>
+                                        <a href="/eventos/{{  $evento->id }}" class="badge btnColor badgeSize">Detalles</a>
                                     </td>
                                 </tr>
                                 @endforeach

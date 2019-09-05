@@ -7,7 +7,7 @@
 @auth
 
     <div class="row justify-content-center animated fadeIn mt-5 mb-5">
-        <div class="col col-lg-6 bg-white rounded shadow">
+        <div class="col col-auto bg-white rounded shadow">
 
             <div class="row justify-content-center mt-3 animated fadeIn">
                 <div class="col">
@@ -31,7 +31,7 @@
                             <a class="nav-link blued" id="personales-tab" data-toggle="tab" href="#personales" role="tab" aria-controls="personales" aria-selected="false">Personales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretaria</a>
+                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretario/a</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
@@ -191,22 +191,22 @@
                         <div class="row">
                             <div class="col col-lg-12 col-xl">
                                  <div class="form-group">
-                                    <label for="secretaria">Secretaria:</label>
-                                    <input name="secretaria" type="text" value="{{ $pack['diputado']->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria...">
+                                    <label for="secretaria">Secretario/a:</label>
+                                    <input name="secretaria" type="text" value="{{ $pack['diputado']->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretario/a...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telSecretaria">Teléfono particular de secretaria:</label>
-                                    <input name="telefono_particular_secretaria" type="text" value="{{ $pack['diputado']->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria...">
+                                    <label for="telSecretaria">Teléfono particular de secretario/a:</label>
+                                    <input name="telefono_particular_secretaria" type="text" value="{{ $pack['diputado']->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretario/a...">
                                 </div>
                             </div>
                             <div class="col col-lg-12 col-xl">
                                 <div class="form-group">
-                                    <label for="celSecretaria">Teléfono celular de secretaria:</label>
-                                    <input name="telefono_celular_secretaria" type="text" value="{{ $pack['diputado']->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria...">
+                                    <label for="celSecretaria">Teléfono celular de secretario/a:</label>
+                                    <input name="telefono_celular_secretaria" type="text" value="{{ $pack['diputado']->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretario/a...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="emailSecretaria">E-mail de secretaria:</label>
-                                    <input name="email_secretaria" type="text" value="{{ $pack['diputado']->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretaria...">
+                                    <label for="emailSecretaria">E-mail de secretario/a:</label>
+                                    <input name="email_secretaria" type="text" value="{{ $pack['diputado']->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretario/a...">
                                 </div>
                             </div>
                         </div>

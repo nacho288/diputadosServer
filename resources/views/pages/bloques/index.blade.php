@@ -7,7 +7,7 @@
 @auth
     <div class="row justify-content-center mt-5 animated fadeIn">
 
-        <div class="col col-md-7 col-lg-5 bg-white rounded shadow">
+        <div class="col col-lg-7 col-xl-6 bg-white rounded shadow">
 
             
             <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
@@ -30,7 +30,7 @@
 
                     <div class="row">
                         <div class="col mb-2">
-                            <h4 class="mb-0">Nueva comición interna</h4>
+                            <h4 class="mb-0">Nuevo bloque</h4>
                         </div>
                     </div>
 
@@ -42,24 +42,31 @@
 
                     <form action="/bloques" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input name="nombre" type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Nombre...">
-                            @error('nombre')
-                                <small id="emailHelp" class="form-text text-danger">Este campo es obligatorio.</small>
-                            @enderror
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input name="nombre" type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Nombre...">
+                                    @error('nombre')
+                                        <small id="emailHelp" class="form-text text-danger">Este campo es obligatorio.</small>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="Logo">Logo:</label>
+                                    <input name="file" type="file" class="form-control-file" id="archivo" aria-describedby="archivo" placeholder="Logo...">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Logo">Logo:</label>
-                            <input name="file" type="file" class="form-control-file" id="archivo" aria-describedby="archivo" placeholder="Logo...">
-                        </div>
+
                         <div class="row">
                             <div class="col text-center">
                                 <hr>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col text-center">
+                        <div class="row mb-0">
+                            <div class="col text-right">
                                 <button type="submit" class="btn btnColor">Guardar</button>
                             </div>
                         </div>
@@ -80,7 +87,7 @@
                                
                                     <div class="row align-items-center">
                                         <div class="col col-auto px-0 ml-2">
-                                           <img class="rounded-circle mx-0" height="40" width="40" data-toggle="collapse" data-target="#collapse{{$bloque->id}}" aria-expanded="false" aria-controls="collapse{{$bloque->id}}"
+                                           <img class="rounded-circle mx-0 border" height="40" width="40" data-toggle="collapse" data-target="#collapse{{$bloque->id}}" aria-expanded="false" aria-controls="collapse{{$bloque->id}}"
                                             @if ($bloque->logo)
                                             src="{{$bloque->logo}}" 
                                             @else
@@ -94,7 +101,7 @@
                                             </button>
                                         </div>
                                         <div class="col col-auto m-0 p-0 text-right">
-                                            <a class="btn btnColor btn-sm" data-toggle="collapse" href="#collapseSx{{$bloque->id}}" role="button" aria-expanded="false" aria-controls="collapseSx{{$bloque->id}}">añadir</a>
+                                            <a class="btn btnColor btn-sm collapse" id="collapse{{$bloque->id}}" data-toggle="collapse" href="#collapseSx{{$bloque->id}}" role="button" aria-expanded="false" aria-controls="collapseSx{{$bloque->id}}">añadir</a>
                                         </div>
                                         <div class="col col-auto text-right">
                                             <a class="btn btnColor btn-sm" href="/bloques/{{$bloque->id}}/edit">Editar</a>
@@ -136,8 +143,8 @@
                                                                     <hr>
                                                                 </div>
                                                             </div>
-                                                            <div class="row mb-3">
-                                                                <div class="col text-center">
+                                                            <div class="row mb-0">
+                                                                <div class="col text-right">
                                                                     <button type="submit" class="btn btnColor">Guardar</button>
                                                                 </div>
                                                             </div>
@@ -149,8 +156,8 @@
                                                 <div class="row align-items-center">
                                                     <div class="col border rounded mb-2 mx-2 shadow-sm p-3">
                                                         <div class="row">
-                                                            <div class="col col-auto">
-                                                                <img class="rounded-circle " height="40" width="40"
+                                                            <div class="col col-auto pr-0">
+                                                                <img class="rounded-circle border" height="40" width="40"
                                                                 @if ($subbloque->logo)
                                                                 src="{{$subbloque->logo}}" 
                                                                 @else
@@ -158,7 +165,7 @@
                                                                 @endif
                                                                 alt=""> 
                                                             </div>
-                                                            <div class="col col-auto">
+                                                            <div class="col col-auto pl-0">
                                                                 <a class="btn btn-link text-dark" data-toggle="collapse" href="#collapseS{{$subbloque->id}}" role="button" aria-expanded="false" aria-controls="collapseS{{$subbloque->id}}">
                                                                     {{$subbloque->nombre}}
                                                                 </a>

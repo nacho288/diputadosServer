@@ -14,7 +14,7 @@ class EspecialeController extends Controller
      */
     public function index()
     {
-        return view('pages.especiales.index')->with('especiales', Especiale::all());
+        return view('pages.especiales.index')->with('especiales', Especiale::all()->sortBy("nombre"));
     }
 
     /**

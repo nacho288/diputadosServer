@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row justify-content-center animated fadeIn mt-5 mb-5">
-        <div class="col col-lg-6 bg-white rounded shadow">
+        <div class="col col-auto bg-white rounded shadow">
 
             <div class="row justify-content-center mt-3 animated fadeIn">
                 <div class="col">
@@ -182,17 +182,17 @@
                             <div class="col col-lg-12 col-xl">
                                  <div class="form-group">
                                     <label for="secretaria">Secretario/a:</label>
-                                    <input name="secretaria" type="text" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria...">
+                                    <input name="secretaria" type="text" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretario/a...">
                                 </div>
                                 <div class="form-group">
                                     <label for="telSecretaria">Teléfono particular de secretario/a:</label>
-                                    <input name="telefono_particular_secretaria" type="text" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria...">
+                                    <input name="telefono_particular_secretaria" type="text" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretario/a...">
                                 </div>
                             </div>
                             <div class="col col-lg-12 col-xl">
                                 <div class="form-group">
                                     <label for="celSecretaria">Teléfono celular de secretario/a:</label>
-                                    <input name="telefono_celular_secretaria" type="text" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria...">
+                                    <input name="telefono_celular_secretaria" type="text" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretario/a...">
                                 </div>
                                 <div class="form-group">
                                     <label for="emailSecretaria">E-mail de secretario/a:</label>
@@ -234,28 +234,28 @@
 
                     <div class="tab-pane fade" id="internas" role="tabpanel" aria-labelledby="internas-tab">
 
-                        <div class="row">
-                            <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Comiciones internas:</h4>
-                            </div>
-                        </div>
-
-                        @foreach ($pack['internas'] as $interna)
-                        <div class="row justify-content-center ml-3">
-
-                            <div class="col">
-                                <div class="form-check">
-                                    <h5>
-                                        <input class="form-check-input" name='internas[]' type="checkbox" value="{{$interna->id}}" id="defaultChecki{{$interna->id}}">
-                                        <label class="form-check-label" for="defaultChecki{{$interna->id}}">
-                                        {{$interna->nombre}}
-                                        </label>
-                                    </h5>
+                                <div class="row">
+                                    <div class="col mt-3 mb-3">
+                                        <h4 class="blued mb-0">Comiciones internas:</h4>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div>
-                         @endforeach
+                                @foreach ($pack['internas'] as $interna)
+                                <div class="row justify-content-center ml-3">
+
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <h5>
+                                                <input class="form-check-input" name='internas[]' type="checkbox" value="{{$interna->id}}" id="defaultChecki{{$interna->id}}">
+                                                <label class="form-check-label" for="defaultChecki{{$interna->id}}">
+                                                {{$interna->nombre}}
+                                                </label>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                @endforeach
 
                     </div>
 
@@ -289,7 +289,7 @@
 
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb-1">
                     <div class="col text-center">
                         <hr>
                     </div>

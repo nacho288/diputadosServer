@@ -7,7 +7,7 @@
 @auth
 
     <div class="row justify-content-center  mt-5 animated fadeIn">
-        <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
+        <div class="col col-auto bg-white rounded shadow-sm">
             
              <div class="row mb-0 align-items-center">
                 <div class="col mt-3">

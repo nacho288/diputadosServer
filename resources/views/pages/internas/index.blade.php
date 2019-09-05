@@ -106,11 +106,11 @@
             @foreach ($internas as $interna)
             <div class="row">
                 
-                <div class="col mx-3 mb-3 border shadow-sm p-2">
+                <div class="col mx-3 mb-3 border shadow-sm p-1">
                     <div class="row">
                         <div class="col mt-2 mb-2">
                                 <a class="btn btn-link text-dark" data-toggle="collapse" href="#collapseS{{$interna->id}}" role="button" aria-expanded="false" aria-controls="collapseS{{$interna->id}}">
-                                    <h4 class="mb-0">{{$interna->nombre}}</h4>
+                                    <h5 class="mb-0">{{$interna->nombre}}</h5>
                                 </a>                                
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                             <div class="col">
                                 
                                 <div class="row mt-0">
-                                    <div class="col">
+                                    <div class="col pt-0">
                                         <hr class="mt-0">
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col text-right">
+                                    <div class="col text-right mb-0">
                                         <a class="btn btnColor" href="/internas/{{  $interna->id }}/edit">Editar</a>
                                     </div>
                                 </div>

@@ -85,7 +85,7 @@
                     <div class="row">
                         <div class="col mt-2 mb-2">
                                 <a class="btn btn-link text-dark" data-toggle="collapse" href="#collapseS{{$especial->id}}" role="button" aria-expanded="false" aria-controls="collapseS{{$especial->id}}">
-                                    <h4 class="mb-0">{{$especial->nombre}}</h4>
+                                    <h5 class="mb-0">{{$especial->nombre}}</h5>
                                 </a>                                
                         </div>
                     </div>

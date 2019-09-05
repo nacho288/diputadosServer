@@ -21,7 +21,7 @@ class DiputadoController extends Controller
      */
     public function index()
     {
-        return view('pages.diputados.index')->with('diputados', Diputado::all());
+        return view('pages.diputados.index')->with('diputados', Diputado::all()->sortBy("apellido"));
     }
 
     /**

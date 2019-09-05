@@ -18,7 +18,7 @@ class InternaController extends Controller
      */
     public function index()
     {
-        return view('pages.internas.index')->with('internas', Interna::all());
+        return view('pages.internas.index')->with('internas', Interna::all()->sortBy("nombre"));
     }
 
     /**
