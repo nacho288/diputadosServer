@@ -120,15 +120,8 @@ class DiputadoController extends Controller
             ->fill($values)
             ->save();
 
-        $diputado->internas()->detach();
-        if ($request->internas) {
-            $diputado->internas()->attach($request->internas);
-        }
-
-        $diputado->especiales()->detach();
-        if ($request->especiales) {
-            $diputado->especiales()->attach($request->especiales);
-        }
+        $diputado->internas()->sync($request->internas);
+        $diputado->especiales()->sync($request->especiales);
 
         return view('pages.diputados.result');
     }

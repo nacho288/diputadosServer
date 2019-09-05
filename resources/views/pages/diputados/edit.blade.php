@@ -49,7 +49,7 @@
             <form action="/diputados/{{ $pack['diputado']->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-                
+
                 <div class="tab-content" id="myTabContent">
 
                     <div class="tab-pane fade show active" id="obligatorios" role="tabpanel" aria-labelledby="obligatorios-tab">
@@ -174,9 +174,9 @@
                                     <label for="conyugue">Cónyugue:</label>
                                     <input name="conyugue" type="text" value="{{ $pack['diputado']->conyugue}}" class="form-control" id="conyugue" aria-describedby="conyugue" placeholder="Cónyugue...">
                                 </div>
-                            </div>  
+                            </div>
                         </div>
-  
+
 
                     </div>
 
@@ -230,7 +230,7 @@
                                  <div class="form-check">
                                     <input class="form-check-input" type="radio" name="subbloque_id" id="subbloque_id_{{$subbloque->id}}" value="{{$subbloque->id}}"
                                     @if ($subbloque->id == $pack['diputado']->subbloque_id)
-                                    checked    
+                                    checked
                                     @endif
                                     >
                                     <label class="form-check-label" for="subbloque_id_{{$subbloque->id}}">
@@ -241,7 +241,7 @@
                             </div>
                             @endforeach
 
-                            
+
                         </div>
 
                     </div>
@@ -250,7 +250,7 @@
 
                         <div class="row">
                             <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Comiciones internas:</h4>
+                                <h4 class="blued mb-0">Comisiones internas:</h4>
                             </div>
                         </div>
 
@@ -262,7 +262,7 @@
                                     <h5>
                                         <input class="form-check-input" name='internas[]' type="checkbox" value="{{$interna->id}}" id="defaultChecki{{$interna->id}}"
                                         @if ($pack['diputado']->internaTiene($interna->id))
-                                        checked    
+                                        checked
                                         @endif
                                         >
                                         <label class="form-check-label" for="defaultChecki{{$interna->id}}">
@@ -271,7 +271,7 @@
                                     </h5>
                                 </div>
                             </div>
-                           
+
                         </div>
                          @endforeach
 
@@ -293,16 +293,16 @@
                                     <h5>
                                         <input class="form-check-input" name='especiales[]' type="checkbox" value="{{$especial->id}}" id="defaultChecki{{$especial->id}}"
                                         @if ($pack['diputado']->especialTiene($especial->id))
-                                        checked    
+                                        checked
                                         @endif
                                         >
                                         <label class="form-check-label" for="defaultChecki{{$especial->id}}">
-                                        {{$especial->nombre}}
+                                        {{ $especial->nombre }}
                                         </label>
                                     </h5>
                                 </div>
                             </div>
-                           
+
                         </div>
                          @endforeach
 
@@ -322,13 +322,13 @@
                 </div>
 
             </form>
-                
-                
+
+
 
         </div>
 
 
-        
+
 
     </div>
 @endauth
