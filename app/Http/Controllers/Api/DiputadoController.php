@@ -30,8 +30,13 @@ class DiputadoController extends Controller
      */
     public function show(Diputado $diputado)
     {
+        $diputado->especiales;
+        $diputado->internas;
         $diputado->subbloque;
-        $diputado->subbloque->bloque;
+
+        if ($diputado->subbloque) {
+            $diputado->subbloque->bloque;
+        }
 
         return $diputado;
     }
