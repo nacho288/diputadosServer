@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        if (DB::connection() instanceof \Illuminate\Database\SQLiteConnection) {
-            DB::statement(DB::raw('PRAGMA foreign_keys=1'));
-        }
+        
     }
 }
