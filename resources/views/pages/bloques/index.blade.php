@@ -101,7 +101,7 @@
                                             </button>
                                         </div>
                                         <div class="col col-auto m-0 p-0 text-right">
-                                            <a class="btn btnColor btn-sm collapse" id="collapse{{$bloque->id}}" data-toggle="collapse" href="#collapseSx{{$bloque->id}}" role="button" aria-expanded="false" aria-controls="collapseSx{{$bloque->id}}">añadir</a>
+                                            <a class="btn btnColor btn-sm" data-toggle="collapse" href="#collapseSx{{$bloque->id}}" role="button" aria-expanded="false" aria-controls="collapseSx{{$bloque->id}}">añadir</a>
                                         </div>
                                         <div class="col col-auto text-right">
                                             <a class="btn btnColor btn-sm" href="/bloques/{{$bloque->id}}/edit">Editar</a>
@@ -151,6 +151,14 @@
                                                         </form>
                                                     </div>
                                                 </div>
+
+                                                @if (count($bloque->subbloques) == 0)
+                                                    <div class="row mt-2 mb-2">
+                                                        <div class="col text-center">
+                                                            <h5 class="text-secondary font-italic">Ningún elemento registrado</h5>
+                                                        </div>
+                                                    </div>    
+                                                @endif           
 
                                                 @foreach ($bloque->subbloques as $subbloque)
                                                 <div class="row align-items-center">
@@ -243,13 +251,7 @@
                 </div>
 
             @else
-                <div class="row mt-0">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
-
-                <div class="row mt-3 mb-2">
+                <div class="row mt-4 mb-3">
                     <div class="col text-center">
                         <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
                     </div>

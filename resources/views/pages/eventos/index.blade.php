@@ -19,9 +19,16 @@
             </div>
 
             @if (count($eventos) != 0)
-                <div class="row justify-content-center mt-3">
+
+                <div class="row mt-3">
                     <div class="col">
-                        <table class="table">
+                        <hr class=" my-0">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-3 mb-3">
+                    <div class="col px-3">
+                        <table class="table " id="example" >
                             <thead>
                                 <tr>
                                     <th scope="col">Titulo</th>
@@ -74,3 +81,40 @@
 
 
 @endsection
+
+@push('extra-script')
+    <script>
+    $(document).ready(function() {
+
+        $('#example').DataTable({
+            "searching": true,
+            'columnDefs': [ {
+                'targets': 4, /* column index */
+                'orderable': false, /* true or false */
+            }],
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+
+
+        }});
+    
+    });
+    </script>
+@endpush

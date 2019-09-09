@@ -70,7 +70,7 @@
                             <a class="nav-link blued" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blued" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Secretaria</a>
+                            <a class="nav-link blued" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Secretario/a</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
@@ -336,20 +336,22 @@
 
                             <div class="tab-pane fade" id="especiales" role="tabpanel" aria-labelledby="especiales-tab">
 
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <h4 class="blued mb-0">Comisiones especiales:</h4>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <hr>
-                                    </div>
-                                </div>
 
 
                                 @if (count($diputado->especiales) != 0)
+
+                                    <div class="row">
+                                        <div class="col mt-3">
+                                            <h4 class="blued mb-0">Comisiones especiales:</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <hr>
+                                        </div>
+                                    </div>
                                 
                                     <div class="row justify-content-center">
                                         <div class="col">

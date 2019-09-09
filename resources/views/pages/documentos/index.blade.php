@@ -20,9 +20,16 @@
             </div>
 
             @if (count($documentos) != 0)
-            <div class="row justify-content-center mt-3 mb-4">
+
+            <div class="row mt-0">
                 <div class="col">
-                    <table class="table mb-0">
+                    <hr class="mb-0">
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-3 mb-4">
+                <div class="col px-4">
+                    <table class="table mb-0" id="example">
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
@@ -50,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-3 mb-2">
+                <div class="row mt-1 mb-3">
                     <div class="col text-center">
                         <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
                     </div>
@@ -64,3 +71,40 @@
 
 
 @endsection
+
+@push('extra-script')
+    <script>
+    $(document).ready(function() {
+
+        $('#example').DataTable({
+            "searching": true,
+            'columnDefs': [ {
+                'targets': 1, /* column index */
+                'orderable': false, /* true or false */
+            }],
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+
+
+        }});
+    
+    });
+    </script>
+@endpush

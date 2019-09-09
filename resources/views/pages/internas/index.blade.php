@@ -162,11 +162,16 @@
                                         </ul>
                                     </div>
                                     <div class="col">
-                                        <h6><b>Miembros:</b></h6>
+                                        <h6><b>Miembros:</b>
+                                        @if (count($interna->diputados) == 0)
+                                        (sin miembros)        
+                                        @endif
+                                        </h6>
                                         <ul class="pl-3">
                                             @foreach ($interna->diputados as $diputado)
                                                 <li>{{$diputado->apellido}} {{$diputado->nombre}}</li>
                                             @endforeach
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -199,13 +204,8 @@
 
             
             @else
-                <div class="row mt-0">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
 
-                <div class="row mt-3 mb-2">
+                <div class="row mt-3 mb-4">
                     <div class="col text-center">
                         <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
                     </div>

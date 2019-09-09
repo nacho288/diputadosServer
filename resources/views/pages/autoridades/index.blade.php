@@ -18,16 +18,10 @@
                         <a class="btn btn-sm btnColor" data-toggle="collapse" href="#collapseAgregar">Editar</a>
                     </div>
                 </div>
-
+                
                 <div class="collapse" id="collapseAgregar">
 
-                    <div class="row mt-0">
-                        <div class="col">
-                            <hr>
-                        </div>
-                    </div>
-
-                    <div class="card card-body shadow-sm p-3">
+                    <div class="card card-body shadow-sm p-3 mt-3">
                         <div class="row">
                             <div class="col">
                                 <form action="/autoridades/{{ $pack['autoridades']->id}}" method="POST"
@@ -160,7 +154,14 @@
                     !$pack['autoridades']->subsecretario_id
                     )
 
-                    <div class="row mt-2 mb-2">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <hr class="my-0">
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-3 mb-4">
                         <div class="col text-center">
                             <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
                         </div>
@@ -183,7 +184,7 @@
 
                                 @if ($pack['autoridades']->presidente_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->presidente->foto)
                                                  src="{{$pack['autoridades']->presidente->foto}}"
                                                  @else
@@ -204,7 +205,7 @@
 
                                 @if ($pack['autoridades']->vice_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->vice->foto)
                                                  src="{{$pack['autoridades']->vice->foto}}"
                                                  @else
@@ -225,7 +226,7 @@
 
                                 @if ($pack['autoridades']->vice2_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->vice2->foto)
                                                  src="{{$pack['autoridades']->vice2->foto}}"
                                                  @else
@@ -246,7 +247,7 @@
 
                                 @if ($pack['autoridades']->parlamentario_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->parlamentario->foto)
                                                  src="{{$pack['autoridades']->parlamentario->foto}}"
                                                  @else
@@ -268,7 +269,7 @@
 
                                 @if ($pack['autoridades']->admistrativo_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->admistrativo->foto)
                                                  src="{{$pack['autoridades']->admistrativo->foto}}"
                                                  @else
@@ -289,7 +290,7 @@
 
                                 @if ($pack['autoridades']->subsecretario_id)
                                     <tr>
-                                        <td><img class="rounded-circle mr-3" height="40" width="40"
+                                        <td><img class="rounded-circle mr-3" height="60" width="60"
                                                  @if ($pack['autoridades']->subsecretario->foto)
                                                  src="{{$pack['autoridades']->subsecretario->foto}}"
                                                  @else

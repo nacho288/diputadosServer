@@ -26,13 +26,19 @@
                     <h5 class="text-justify">{{  $documento->descripcion }}</h5>
                 </div>
             </div>
+            @else
+                <div class="row mt-3 mb-3">
+                    <div class="col text-center">
+                        <h4 class="text-secondary font-italic">Sin descripción</h4>
+                    </div>
+                </div>
+            @endif
 
             <div class="row">
                 <div class="col">
                     <hr>
                 </div>
-            </div>
-            @endif
+            </div>   
 
             <div class="row mb-3">
                 <div class="col text-center">

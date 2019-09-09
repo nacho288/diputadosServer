@@ -18,7 +18,7 @@ class CreateDiputadosTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('dni');
-            $table->date('fecha_naciminento');
+            $table->date('fecha_nacimiento');
             $table->string('foto')->nullable();
             $table->string('estado_civil');
             $table->string('domicilio');

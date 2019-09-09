@@ -36,7 +36,7 @@
             <div class="row">
 
                 <div class="col-12 col-md">
-                    <h5 class="text-justify">{{$evento->cuerpo}}</h5>
+                    <h5 class="text-justify">{!! nl2br(e($evento->cuerpo)) !!}</h5>
                 </div>
 
                 @if ($evento->imagen)

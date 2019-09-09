@@ -5,7 +5,7 @@
 @section('content')
 
 @auth
-      <div class="row justify-content-center mt-5 animated fadeIn">
+      <div class="row justify-content-center mt-5 animated fadeIn mb-5">
 
         <div class="col col-auto bg-white rounded shadow-sm">
 
@@ -18,10 +18,16 @@
                 </div>
             </div>
 
+            <div class="row mt-0">
+                    <div class="col">
+                        <hr class="my=0">
+                    </div>
+                </div>
+
             @if (count($diputados) != 0)
-            <div class="row justify-content-center mt-3">
+            <div class="row justify-content-center mt-1 mb-3">
                 <div class="col">
-                    <table class="table">
+                    <table  id="example" class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Diputados</th>
@@ -69,7 +75,46 @@
         </div>
 
     </div>
+
+
 @endauth
 
 
 @endsection
+
+@push('extra-script')
+    <script>
+    $(document).ready(function() {
+
+        $('#example').DataTable({
+            "searching": true,
+            'columnDefs': [ {
+                'targets': 2, /* column index */
+                'orderable': false, /* true or false */
+            }],
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+
+
+        }});
+    
+    });
+    </script>
+@endpush

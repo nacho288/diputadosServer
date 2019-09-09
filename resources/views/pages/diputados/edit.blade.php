@@ -226,6 +226,7 @@
                             @foreach ($pack['bloques'] as $bloque)
                             <div class="col col-md-12 col-xl-5 m-3 p-3 border shadow-sm">
                                 <h5>{{$bloque->nombre}}</h5>
+                                <hr>
                                 @foreach ($bloque->subbloques as $subbloque)
                                  <div class="form-check">
                                     <input class="form-check-input" type="radio" name="subbloque_id" id="subbloque_id_{{$subbloque->id}}" value="{{$subbloque->id}}"
@@ -238,6 +239,9 @@
                                     </label>
                                 </div>
                                 @endforeach
+                                @if (count($bloque->subbloques) == 0)
+                                    (sin sub-bloques)
+                                @endif
                             </div>
                             @endforeach
 

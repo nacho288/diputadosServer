@@ -92,7 +92,7 @@
 
                     <div class="collapse" id="collapseS{{$especial->id}}">
 
-                        <div class="row mt-0 mb-3 p-3 pt-0 ">
+                        <div class="row mt-0 p-3 pt-0 ">
                             <div class="col">
                                 
                                 <div class="row mt-0">
@@ -136,7 +136,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-0">
                                     <div class="col text-right">
                                         <a class="btn btnColor" href="/especiales/{{  $especial->id }}/edit">Editar</a>
                                     </div>
@@ -158,13 +158,7 @@
 
             
             @else
-                <div class="row mt-0">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
-
-                <div class="row mt-3 mb-2">
+                <div class="row mt-2 mb-3">
                     <div class="col text-center">
                         <h4 class="text-secondary font-italic">Ningún elemento registrado</h4>
                     </div>

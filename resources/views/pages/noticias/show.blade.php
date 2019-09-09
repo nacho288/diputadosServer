@@ -34,15 +34,15 @@
 
             @if ($noticia->imagen)
             <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                    <img class="img-fluid" src="{{$noticia->imagen}}" alt="">
+                <div class="col col-auto">
+                    <img class="img-fluid shadow-sm" src="{{$noticia->imagen}}" alt="">
                 </div> 
             </div>
             @endif
 
             <div class="row mt-3">
                 <div class="col">
-                    <h5 class="text-justify">{{$noticia->cuerpo}}</h5>
+                    <h5 class="text-justify">{!! nl2br(e($noticia->cuerpo)) !!}</h5>
                 </div>
             </div>
 
