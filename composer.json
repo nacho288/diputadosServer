@@ -12,7 +12,8 @@
         "fideloper/proxy": "^4.0",
         "glhd/aire-bootstrap": "^0.0.1",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "ext-pdo_sqlite": "*"
     },
     "require-dev": {
         "barryvdh/laravel-cors": "^0.11.3",
