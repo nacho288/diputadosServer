@@ -59,6 +59,8 @@
                     </a>
                     <div class="dropdown-menu m-0 animate slideIn shadow" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('autoridades.index') }}">Autoridades</a>
+                    <a class="dropdown-item" href="{{ route('oficinas.index') }}">Oficinas</a>
+                    <a class="dropdown-item" href="{{ route('empleados.index') }}">Empleados</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

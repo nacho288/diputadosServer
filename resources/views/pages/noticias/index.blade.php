@@ -97,9 +97,10 @@
 
         $('#example').DataTable({
             "searching": true,
+            "order": [[ 1, "desc" ]]
             'columnDefs': [ {
                 'targets': 4, /* column index */
-                'orderable': false, /* true or false */
+                'orderable': false, /* true or false */ 
             }],
             language: {
                 "decimal": "",

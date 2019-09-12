@@ -32,5 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('internas', 'InternaController');
     Route::resource('especiales', 'EspecialeController');
     Route::resource('autoridades', 'AutoridadeController');
+    Route::resource('empleados', 'EmpleadoController');
+    Route::resource('oficinas', 'OficinaController');
+    /*     Route::resource('roles', 'RolController'); */
+    Route::post('roles/{id}', 'OficinaController@storeRol');
+    Route::delete('roles/{id}', 'OficinaController@destroyRol');
     Route::resource('users', 'UserController');
 });
