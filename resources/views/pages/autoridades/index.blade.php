@@ -81,12 +81,12 @@
                                                 <select name="parlamentario_id" class="form-control"
                                                         id="parlamentario_id">
                                                     <option value="{{null}}">sin definir</option>
-                                                    @foreach ($pack['diputados'] as $diputado)
-                                                        <option value="{{$diputado->id}}"
-                                                                @if ($pack['autoridades']->parlamentario_id == $diputado->id)
+                                                    @foreach ($pack['empleados'] as $empleado)
+                                                        <option value="{{$empleado->id}}"
+                                                                @if ($pack['autoridades']->parlamentario_id == $empleado->id)
                                                                 selected
                                                             @endif
-                                                        >{{$diputado->apellido}} {{$diputado->nombre}}</option>
+                                                        >{{$empleado->apellido}} {{$empleado->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -97,12 +97,12 @@
                                                 <select name="admistrativo_id" class="form-control"
                                                         id="admistrativo_id">
                                                     <option value="{{null}}">sin definir</option>
-                                                    @foreach ($pack['diputados'] as $diputado)
-                                                        <option value="{{$diputado->id}}"
-                                                                @if ($pack['autoridades']->admistrativo_id == $diputado->id)
+                                                    @foreach ($pack['empleados'] as $empleado)
+                                                        <option value="{{$empleado->id}}"
+                                                                @if ($pack['autoridades']->admistrativo_id == $empleado->id)
                                                                 selected
                                                             @endif
-                                                        >{{$diputado->apellido}} {{$diputado->nombre}}</option>
+                                                        >{{$empleado->apellido}} {{$empleado->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -113,12 +113,12 @@
                                                 <select name="subsecretario_id" class="form-control"
                                                         id="subsecretario_id">
                                                     <option value="{{null}}">sin definir</option>
-                                                    @foreach ($pack['diputados'] as $diputado)
-                                                        <option value="{{$diputado->id}}"
-                                                                @if ($pack['autoridades']->subsecretario_id == $diputado->id)
+                                                    @foreach ($pack['empleados'] as $empleado)
+                                                        <option value="{{$empleado->id}}"
+                                                                @if ($pack['autoridades']->subsecretario_id == $empleado->id)
                                                                 selected
                                                             @endif
-                                                        >{{$diputado->apellido}} {{$diputado->nombre}}</option>
+                                                        >{{$empleado->apellido}} {{$empleado->nombre}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -190,8 +190,14 @@
                                                  @else
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
-                                                 alt=""><b class="mr-4">{{$pack['autoridades']->presidente->apellido}}
-                                                , {{$pack['autoridades']->presidente->nombre}}</b></td>
+                                                 alt="">
+                                                <a class="text-dark" href="/diputados/{{$pack['autoridades']->presidente_id}}">
+                                                    <b class="mr-4">{{$pack['autoridades']->presidente->apellido}}
+                                                    , {{$pack['autoridades']->presidente->nombre}}</b>
+                                                </a>
+                                                
+                                            
+                                            </td>
                                         <td>
                                             @if ($pack['autoridades']->presidente->subbloque)
                                                 {{$pack['autoridades']->presidente->subbloque->bloque->nombre}}
@@ -211,8 +217,12 @@
                                                  @else
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
-                                                 alt=""><b class="mr-4">{{$pack['autoridades']->vice->apellido}}
-                                                , {{$pack['autoridades']->vice->nombre}}</b></td>
+                                                 alt="">
+                                                <a class="text-dark" href="/diputados/{{$pack['autoridades']->vice_id}}">
+                                                    <b class="mr-4">{{$pack['autoridades']->vice->apellido}}
+                                                    , {{$pack['autoridades']->vice->nombre}}</b></td>
+                                                </a>
+                                                
                                         <td>
                                             @if ($pack['autoridades']->vice->subbloque)
                                                 {{$pack['autoridades']->vice->subbloque->bloque->nombre}}
@@ -232,8 +242,13 @@
                                                  @else
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
-                                                 alt=""><b class="mr-4">{{$pack['autoridades']->vice2->apellido}}
-                                                , {{$pack['autoridades']->vice2->nombre}}</b></td>
+                                                 alt="">
+                                                 <a class="text-dark" href="/diputados/{{$pack['autoridades']->vice2_id}}">
+                                                    <b class="mr-4">{{$pack['autoridades']->vice2->apellido}}
+                                                    , {{$pack['autoridades']->vice2->nombre}}</b>
+                                                </a>
+                                                
+                                        </td>
                                         <td>
                                             @if ($pack['autoridades']->vice2->subbloque)
                                                 {{$pack['autoridades']->vice2->subbloque->bloque->nombre}}
@@ -253,14 +268,12 @@
                                                  @else
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
-                                                 alt=""><b
-                                                class="mr-4">{{$pack['autoridades']->parlamentario->apellido}}
-                                                , {{$pack['autoridades']->parlamentario->nombre}}</b></td>
-                                        <td>
-                                            @if ($pack['autoridades']->parlamentario->subbloque)
-                                                {{$pack['autoridades']->parlamentario->subbloque->bloque->nombre}}
-                                            @endif
-                                        </td>
+                                                 alt="">
+                                                 <a class="text-dark" href="/empleados/{{$pack['autoridades']->parlamentario_id}}">
+                                                    <b class="mr-4">{{$pack['autoridades']->parlamentario->apellido}}
+                                                    , {{$pack['autoridades']->parlamentario->nombre}}</b></td>
+                                                 </a>
+                                        <td></td>
                                         <td>
                                             Secretario parlamentario
                                         </td>
@@ -275,13 +288,13 @@
                                                  @else
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
-                                                 alt=""><b class="mr-4">{{$pack['autoridades']->admistrativo->apellido}}
-                                                , {{$pack['autoridades']->admistrativo->nombre}}</b></td>
-                                        <td>
-                                            @if ($pack['autoridades']->admistrativo->subbloque)
-                                                {{$pack['autoridades']->admistrativo->subbloque->bloque->nombre}}
-                                            @endif
-                                        </td>
+                                                 alt="">
+                                                 <a class="text-dark" href="/empleados/{{$pack['autoridades']->admistrativo_id}}">
+                                                 <b class="mr-4">{{$pack['autoridades']->admistrativo->apellido}}
+                                                , {{$pack['autoridades']->admistrativo->nombre}}</b>
+                                                </a>
+                                                </td>
+                                        <td></td>
                                         <td>
                                             Secretario admistrativo
                                         </td>
@@ -297,13 +310,13 @@
                                                  src="{{ URL::asset('img/avatar.jpg') }}"
                                                  @endif
                                                  alt=""><b
-                                                class="mr-4">{{$pack['autoridades']->subsecretario->apellido}}
-                                                , {{$pack['autoridades']->subsecretario->nombre}}</b></td>
-                                        <td>
-                                            @if ($pack['autoridades']->subsecretario->subbloque)
-                                                {{$pack['autoridades']->subsecretario->subbloque->bloque->nombre}}
-                                            @endif
-                                        </td>
+                                                class="mr-4">
+                                                <a class="text-dark" href="/empleados/{{$pack['autoridades']->subsecretario_id}}">
+                                                {{$pack['autoridades']->subsecretario->apellido}}
+                                                , {{$pack['autoridades']->subsecretario->nombre}}
+                                                </a>
+                                                </b></td>
+                                        <td></td>
                                         <td>
                                             Subsecretario
                                         </td>

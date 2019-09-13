@@ -16,9 +16,9 @@ class CreateOficinasTable extends Migration
         Schema::create('oficinas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('direccion');
-            $table->string('telefono');
-            $table->string('email');
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

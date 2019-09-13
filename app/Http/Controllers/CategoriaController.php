@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('pages.categorias.index', ['categorias' => Categoria::all()->sortBy("apellido")]);
+        return view('pages.categorias.index', ['categorias' => Categoria::where('disable', false)->get()->sortBy("nombre")]);
     }
 
     /**
@@ -91,6 +91,8 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        //
+        $categoria->disable = true;
+        $categoria->save();
+        return view('pages.categorias.result');
     }
 }

@@ -28,7 +28,7 @@
                             <a class="nav-link blued" id="personales-tab" data-toggle="tab" href="#personales" role="tab" aria-controls="personales" aria-selected="false">Personales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretario/a</a>
+                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretaria/o</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
@@ -174,28 +174,28 @@
 
                         <div class="row">
                             <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Datos de secretario/a:</h4>
+                                <h4 class="blued mb-0">Datos de secretaria/o:</h4>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col col-lg-12 col-xl">
                                  <div class="form-group">
-                                    <label for="secretaria">Secretario/a:</label>
-                                    <input name="secretaria" type="text" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretario/a...">
+                                    <label for="secretaria">Secretaria/o:</label>
+                                    <input name="secretaria" type="text" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria/o...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telSecretaria">Teléfono particular de secretario/a:</label>
-                                    <input name="telefono_particular_secretaria" type="text" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretario/a...">
+                                    <label for="telSecretaria">Teléfono particular de secretaria/o:</label>
+                                    <input name="telefono_particular_secretaria" type="text" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria/o...">
                                 </div>
                             </div>
                             <div class="col col-lg-12 col-xl">
                                 <div class="form-group">
-                                    <label for="celSecretaria">Teléfono celular de secretario/a:</label>
-                                    <input name="telefono_celular_secretaria" type="text" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretario/a...">
+                                    <label for="celSecretaria">Teléfono celular de secretaria/o:</label>
+                                    <input name="telefono_celular_secretaria" type="text" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria/o...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="emailSecretaria">E-mail de secretario/a:</label>
+                                    <label for="emailSecretaria">E-mail de secretaria/o:</label>
                                     <input name="email_secretaria" type="text" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretaria...">
                                 </div>
                             </div>
@@ -236,7 +236,7 @@
 
                                 <div class="row">
                                     <div class="col mt-3 mb-3">
-                                        <h4 class="blued mb-0">Comiciones internas:</h4>
+                                        <h4 class="blued mb-0">Comisiones internas:</h4>
                                     </div>
                                 </div>
 
@@ -263,7 +263,7 @@
 
                         <div class="row">
                             <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Comiciones especiales:</h4>
+                                <h4 class="blued mb-0">Comisiones especiales:</h4>
                             </div>
                         </div>
 

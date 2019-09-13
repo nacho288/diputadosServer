@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Diputado;
 use App\Subbloque;
 use Illuminate\Http\Request;
 use App\Traits\FileOrNull;
@@ -110,6 +111,12 @@ class SubbloqueController extends Controller
      */
     public function destroy(Subbloque $subbloque)
     {
-        //
+        foreach (Diputado::where('subbloque_id', $subbloque->id)->get() as $dip) {
+            $dip->subbloque_id = null;
+            $dip->save();
+        }
+
+        $subbloque->delete();
+        return view('pages.bloques.result');
     }
 }

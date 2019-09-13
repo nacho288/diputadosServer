@@ -33,18 +33,18 @@
             </div>
 
 
-            <div class="row">
+            @if ($evento->imagen)
+            <div class="row justify-content-center">
+                <div class="col col-auto">
+                    <img class="img-fluid shadow-sm" src="{{$evento->imagen}}" alt="">
+                </div> 
+            </div>
+            @endif
 
-                <div class="col-12 col-md">
+            <div class="row mt-3">
+                <div class="col">
                     <h5 class="text-justify">{!! nl2br(e($evento->cuerpo)) !!}</h5>
                 </div>
-
-                @if ($evento->imagen)
-                   <div class="col-12 col-md-6">
-                    <img class="img-fluid" src="{{$evento->imagen}}" alt="">
-                </div> 
-                @endif
-
             </div>
 
             <div class="row">
@@ -99,7 +99,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-md-4 text-center">
-                    <a class="btn btnColor" href="/eventos/{{  $evento->id }}/edit">Editar noticia</a>
+                    <a class="btn btnColor" href="/eventos/{{  $evento->id }}/edit">Editar evento</a>
                 </div>
             </div>
 

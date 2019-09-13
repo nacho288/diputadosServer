@@ -9,9 +9,14 @@
     <div class="row justify-content-center animated fadeIn mt-5 mb-5">
         <div class="col col-auto bg-white rounded shadow">
 
-            <div class="row justify-content-center mt-3 animated fadeIn">
-                <div class="col">
+            <div class="row justify-content-between mt-3 animated fadeIn">
+                <div class="col col-auto">
                     <h2 class="blued mb-0">Editar Diputado</h2>
+                </div>
+                <div class="col col-auto">
+                    <button type="button" class="btn btnColor" data-toggle="modal" data-target="#eliminarModal">
+                        Eliminar
+                    </button>
                 </div>
             </div>
 
@@ -31,7 +36,7 @@
                             <a class="nav-link blued" id="personales-tab" data-toggle="tab" href="#personales" role="tab" aria-controls="personales" aria-selected="false">Personales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretario/a</a>
+                            <a class="nav-link blued" id="secretaria-tab" data-toggle="tab" href="#secretaria" role="tab" aria-controls="secretaria" aria-selected="false">Secretaria/o</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
@@ -184,29 +189,29 @@
 
                         <div class="row">
                             <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Datos de secretario/a:</h4>
+                                <h4 class="blued mb-0">Datos de secretaria/o:</h4>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col col-lg-12 col-xl">
                                  <div class="form-group">
-                                    <label for="secretaria">Secretario/a:</label>
-                                    <input name="secretaria" type="text" value="{{ $pack['diputado']->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretario/a...">
+                                    <label for="secretaria">Secretaria/o:</label>
+                                    <input name="secretaria" type="text" value="{{ $pack['diputado']->secretaria}}" class="form-control" id="secretaria" aria-describedby="secretaria" placeholder="Secretaria/o...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telSecretaria">Teléfono particular de secretario/a:</label>
-                                    <input name="telefono_particular_secretaria" type="text" value="{{ $pack['diputado']->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretario/a...">
+                                    <label for="telSecretaria">Teléfono particular de secretaria/o:</label>
+                                    <input name="telefono_particular_secretaria" type="text" value="{{ $pack['diputado']->telefono_particular_secretaria}}" class="form-control" id="telSecretaria" aria-describedby="telSecretaria" placeholder="Teléfono particular de secretaria/o...">
                                 </div>
                             </div>
                             <div class="col col-lg-12 col-xl">
                                 <div class="form-group">
-                                    <label for="celSecretaria">Teléfono celular de secretario/a:</label>
-                                    <input name="telefono_celular_secretaria" type="text" value="{{ $pack['diputado']->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretario/a...">
+                                    <label for="celSecretaria">Teléfono celular de secretaria/o:</label>
+                                    <input name="telefono_celular_secretaria" type="text" value="{{ $pack['diputado']->telefono_celular_secretaria}}" class="form-control" id="celSecretaria" aria-describedby="celSecretaria" placeholder="Teléfono celular de secretaria/o...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="emailSecretaria">E-mail de secretario/a:</label>
-                                    <input name="email_secretaria" type="text" value="{{ $pack['diputado']->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretario/a...">
+                                    <label for="emailSecretaria">E-mail de secretaria/o:</label>
+                                    <input name="email_secretaria" type="text" value="{{ $pack['diputado']->email_secretaria}}" class="form-control" id="emailSecretaria" aria-describedby="emailSecretaria" placeholder="E-mail de secretaria/o...">
                                 </div>
                             </div>
                         </div>
@@ -285,7 +290,7 @@
 
                         <div class="row">
                             <div class="col mt-3 mb-3">
-                                <h4 class="blued mb-0">Comiciones especiales:</h4>
+                                <h4 class="blued mb-0">Comisiones especiales:</h4>
                             </div>
                         </div>
 
@@ -319,7 +324,8 @@
                         <hr>
                     </div>
                 </div>
-                <div class="row mb-3">
+                <div class="row mb-3 justify-content-between">
+                    
                     <div class="col text-center">
                         <button type="submit" class="btn btnColor">Guardar</button>
                     </div>
@@ -327,14 +333,34 @@
 
             </form>
 
-
-
         </div>
 
-
-
-
     </div>
+
+    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eliminarModalLabel">Aviso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Esta seguro de que desea eliminar este registro?
+            </div>
+            <div class="modal-footer">
+                <form action="/diputados/{{ $pack['diputado']->id}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <button type="button" class="btn btnColor" data-dismiss="modal">Volver</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
 @endauth
 
 

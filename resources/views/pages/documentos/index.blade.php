@@ -28,7 +28,7 @@
             </div>
             
             <div class="row justify-content-center mt-3 mb-4">
-                <div class="col px-4">
+                <div class="col">
                     <table class="table mb-0" id="example">
                         <thead>
                             <tr>

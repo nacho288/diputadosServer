@@ -102,6 +102,8 @@ class EspecialeController extends Controller
      */
     public function destroy(Especiale $especiale)
     {
-        //
+        $especiale->diputados()->detach();
+        $especiale->delete();
+        return view('pages.especiales.result');
     }
 }

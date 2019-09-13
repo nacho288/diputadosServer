@@ -98,7 +98,9 @@ class OficinaController extends Controller
      */
     public function destroy(Oficina $oficina)
     {
-        //
+        $oficina->empleados()->detach();
+        $oficina->delete();
+        return view('pages.oficinas.result');
     }
 
     public function storeRol(Request $request, $id)

@@ -12,7 +12,7 @@ class Interna extends Model
         'vice_id',
         'descripcion',
         'reunion',
-        'secretario',
+        'secretario_id',
         'direccion',
         'telefono',
         'email',
@@ -31,5 +31,10 @@ class Interna extends Model
     public function vice()
     {
         return $this->hasOne(Diputado::class, 'id', 'vice_id');
+    }
+
+    public function secretario()
+    {
+        return $this->hasOne(Empleado::class, 'id', 'secretario_id');
     }
 }

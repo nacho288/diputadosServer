@@ -27,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view('pages.eventos.create')->with('categorias', Categoria::all());
+        return view('pages.eventos.create')->with('categorias', Categoria::where('disable', false)->get()->sortBy("nombre"));
     }
 
     /**
@@ -77,9 +77,14 @@ class EventoController extends Controller
      */
     public function edit(Evento $evento)
     {
+        $categorias = Categoria::where('disable', false)
+            ->orWhere('id', $evento->categorias[0]->id)
+            ->get()
+            ->sortBy("nombre");
+
         return view('pages.eventos.edit')->with("pack", [
             'evento' => $evento,
-            'categorias' => Categoria::all(),
+            'categorias' =>  $categorias,
         ]);
     }
 
@@ -127,6 +132,7 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
-        //
+        $evento->delete();
+        return view('pages.eventos.result');
     }
 }

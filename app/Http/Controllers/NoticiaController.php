@@ -27,7 +27,7 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        return view('pages.noticias.create')->with('categorias', Categoria::all());
+        return view('pages.noticias.create')->with('categorias', Categoria::where('disable', false)->get()->sortBy("nombre"));
     }
 
     /**
@@ -78,10 +78,15 @@ class NoticiaController extends Controller
      */
     public function edit(Noticia $noticia)
     {
+        $categorias = Categoria::where('disable', false)
+                                ->orWhere('id', $noticia->categorias[0]->id)
+                                ->get()
+                                ->sortBy("nombre");
+
         return view('pages.noticias.edit', [
             'pack' => [
                 'noticia' => $noticia,
-                'categorias' => Categoria::all(),
+                'categorias' => $categorias,
             ],
         ]);
     }
@@ -131,6 +136,7 @@ class NoticiaController extends Controller
      */
     public function destroy(Noticia $noticia)
     {
-        //
+        $noticia->delete();
+        return view('pages.noticias.result');
     }
 }

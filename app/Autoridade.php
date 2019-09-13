@@ -32,16 +32,16 @@ class Autoridade extends Model
 
     public function parlamentario()
     {
-        return $this->hasOne(Diputado::class, 'id', 'parlamentario_id');
+        return $this->hasOne(Empleado::class, 'id', 'parlamentario_id');
     }
 
     public function admistrativo()
     {
-        return $this->hasOne(Diputado::class, 'id', 'admistrativo_id');
+        return $this->hasOne(Empleado::class, 'id', 'admistrativo_id');
     }
 
     public function subsecretario()
     {
-        return $this->hasOne(Diputado::class, 'id', 'subsecretario_id');
+        return $this->hasOne(Empleado::class, 'id', 'subsecretario_id');
     }
 }

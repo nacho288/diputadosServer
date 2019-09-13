@@ -18,4 +18,9 @@ class Empleado extends Model
         return $this->belongsToMany(Oficina::class)->withPivot('rol');
     }
 
+    public function internas()
+    {
+        return $this->hasMany(Interna::class, 'secretario_id', 'id');
+    }
+
 }

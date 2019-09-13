@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Autoridade;
+use App\Interna;
 use App\Empleado;
 use Illuminate\Http\Request;
 use App\Traits\FileOrNull;
@@ -58,7 +60,11 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        return view('pages.empleados.show')->with('empleado', $empleado);
+        return view('pages.empleados.show')
+            ->with([
+                'empleado' => $empleado, 
+                'autoridades' => Autoridade::firstOrCreate([])
+            ]);
     }
 
     /**
@@ -105,6 +111,31 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        $empleado->oficinas()->detach();
+
+        foreach (Interna::where('secretario_id', $empleado->id)->get() as $sub) {
+            $sub->secretario_id = null;
+            $sub->save();
+        }
+
+        $autoridades = Autoridade::firstOrCreate([]);
+
+        if ($autoridades->parlamentario_id == $empleado->id) {
+            $autoridades->parlamentario_id = null;
+        }
+
+        if ($autoridades->admistrativo_id == $empleado->id) {
+            $autoridades->admistrativo_id = null;
+        }
+
+        if ($autoridades->subsecretario_id == $empleado->id) {
+            $autoridades->subsecretario_id = null;
+        }
+
+        $autoridades->save();
+
+        $empleado->delete();
+
+        return view('pages.empleados.result');
     }
 }

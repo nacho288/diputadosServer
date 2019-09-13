@@ -112,6 +112,7 @@ class DocumentoController extends Controller
      */
     public function destroy(Documento $documento)
     {
-        //
+        $documento->delete();
+        return view('pages.documentos.result');
     }
 }

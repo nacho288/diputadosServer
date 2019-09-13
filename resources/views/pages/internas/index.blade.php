@@ -12,7 +12,7 @@
             
             <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
                 <div class="col col-auto mt-3">
-                    <h2 class="blued mb-0">Comiciones internas</h2>
+                    <h2 class="blued mb-0">Comisiones internas</h2>
                 </div>
                 <div class="col col-auto mt-3 text-right">
                     <a class="btn btn-sm btnColor" data-toggle="collapse" href="#collapseAgregar">Agregar</a>
@@ -30,7 +30,7 @@
 
                     <div class="row">
                         <div class="col mb-2">
-                            <h4 class="mb-0">Nueva comición interna</h4>
+                            <h4 class="mb-0">Nueva comisión interna</h4>
                         </div>
                     </div>
 
@@ -53,8 +53,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="secretario">Secretario:</label>
-                                    <input name="secretario" type="text" class="form-control" id="secretario" aria-describedby="secretario" placeholder="Secretario/a...">
+                                    <label for="secretario_id">Secretaria/o:</label>
+                                    <select name="secretario_id" class="form-control" id="secretario_id">
+                                        <option value="{{null}}">sin definir</option>
+                                        @foreach ($empleados as $empleado)
+                                            <option value="{{$empleado->id}}">{{$empleado->apellido}} {{$empleado->nombre}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="direccion">Dirección:</label>
@@ -148,13 +153,27 @@
                                 <div class="row">
                                     <div class="col">
                                         <ul class="pl-3">
-                                            @if ($interna->presidente)
-                                                <li><b>Presidente: </b>{{$interna->presidente->apellido}} {{$interna->presidente->nombre}}</li>
-                                            @endif
-                                            @if ($interna->vice)
-                                                <li><b>Vicepresidente: </b>{{$interna->vice->apellido}} {{$interna->vice->nombre}}</li>
-                                            @endif
-                                            <li><b>Secretario/a: </b>{{$interna->secretario}}</li>
+                                            <li><b>Presidente: </b>
+                                                @if ($interna->presidente)
+                                                {{$interna->presidente->apellido}} {{$interna->presidente->nombre}}
+                                                @else
+                                                (sin asignar)
+                                                @endif
+                                            </li>
+                                            <li><b>Vicepresidente: </b>
+                                                @if ($interna->vice)
+                                                {{$interna->vice->apellido}} {{$interna->vice->nombre}}
+                                                @else
+                                                (sin asignar)
+                                                @endif
+                                            </li>
+                                            <li><b>Secretaria/o: </b>
+                                                @if ($interna->secretario)
+                                                {{$interna->secretario->apellido}} {{$interna->secretario->nombre}}
+                                                @else
+                                                (sin asignar)
+                                                @endif
+                                            </li>
                                             <li><b>Direccion: </b>{{$interna->direccion}}</li>
                                             <li><b>Teléfono: </b>{{$interna->telefono}}</li>
                                             <li><b>Reuniones: </b>{{$interna->reunion}}</li>

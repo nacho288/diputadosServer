@@ -97,9 +97,9 @@
 
         $('#example').DataTable({
             "searching": true,
-            "order": [[ 1, "desc" ]]
+            "order": [[ 1, "desc" ]],
             'columnDefs': [ {
-                'targets': 4, /* column index */
+                'targets': 3, /* column index */
                 'orderable': false, /* true or false */ 
             }],
             language: {

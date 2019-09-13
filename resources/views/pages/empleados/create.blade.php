@@ -8,7 +8,7 @@
 
             <div class="row justify-content-center mt-3 animated fadeIn">
                 <div class="col">
-                    <h2 class="blued mb-0">Añadir nuevo Empleado</h2>
+                    <h2 class="blued mb-0">Añadir nuevo empleado</h2>
                 </div>
             </div>
 

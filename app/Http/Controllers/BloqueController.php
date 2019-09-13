@@ -112,6 +112,11 @@ class BloqueController extends Controller
      */
     public function destroy(Bloque $bloque)
     {
-        //
+        if (count($bloque->subbloques) == 0) {
+            $bloque->delete();
+            return view('pages.bloques.result');
+        } else {
+            return redirect('bloques/' . $bloque->id . '/edit');
+        }
     }
 }

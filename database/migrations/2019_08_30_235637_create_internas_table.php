@@ -20,7 +20,7 @@ class CreateInternasTable extends Migration
             $table->bigInteger('vice_id')->unsigned()->nullable();
             $table->text('descripcion')->nullable();
             $table->text('reunion')->nullable();
-            $table->string('secretario')->nullable();
+            $table->bigInteger('secretario_id')->unsigned()->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('email')->nullable();
@@ -28,6 +28,7 @@ class CreateInternasTable extends Migration
 
             $table->foreign('presidente_id')->references('id')->on('diputados');
             $table->foreign('vice_id')->references('id')->on('diputados');
+            $table->foreign('secretario_id')->references('id')->on('empleados');
 
         });
     }

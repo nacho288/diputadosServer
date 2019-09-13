@@ -6,8 +6,11 @@ use App\Diputado;
 use App\Http\Requests\DiputadoRequest;
 use App\Traits\FileOrNull;
 use App\Bloque;
+use App\Subbloque;
 use App\Especiale;
 use App\Interna;
+use App\Autoridade;
+
 
 
 
@@ -135,6 +138,42 @@ class DiputadoController extends Controller
      */
     public function destroy(Diputado $diputado)
     {
-        //
+        $diputado->internas()->detach();
+        $diputado->especiales()->detach();
+
+        foreach (Interna::where('presidente_id', $diputado->id)->get() as $sub) {
+            $sub->presidente_id = null;
+            $sub->save();
+        }
+
+        foreach (Interna::where('vice_id', $diputado->id)->get() as $sub) {
+            $sub->vice_id = null;
+            $sub->save();
+        }
+        
+        foreach (Subbloque::where('presidente_id', $diputado->id)->get() as $sub) {
+            $sub->presidente_id = null;
+            $sub->save();
+        }
+
+        $autoridades = Autoridade::firstOrCreate([]);
+
+        if ($autoridades->presidente_id == $diputado->id) {
+            $autoridades->presidente_id = null;
+        }
+
+        if ($autoridades->vice_id == $diputado->id) {
+            $autoridades->vice_id = null;
+        }
+
+        if ($autoridades->vice2_id == $diputado->id) {
+            $autoridades->vice2_id = null;
+        }
+
+        $autoridades->save();
+
+        $diputado->delete();
+
+        return view('pages.diputados.result');
     }
 }

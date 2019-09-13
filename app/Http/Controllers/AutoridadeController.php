@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Autoridade;
 use App\Diputado;
+use App\Empleado;
 use Illuminate\Http\Request;
 
 class AutoridadeController extends Controller
@@ -21,7 +22,8 @@ class AutoridadeController extends Controller
 
         $pack = [
             'autoridades' => $autoridades,
-            'diputados' => $diputados
+            'diputados' => $diputados,
+            'empleados' => Empleado::all()
         ];
 
         return view('pages.autoridades.index', ['pack' => $pack]);

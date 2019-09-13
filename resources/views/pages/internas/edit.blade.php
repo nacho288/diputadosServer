@@ -9,9 +9,14 @@
     <div class="row justify-content-center animated fadeIn mt-5">
         <div class="col col-md-6 col-lg-4 bg-white rounded shadow-sm">
 
-            <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
-                <div class="col mt-3">
-                    <h2 class="blued mb-0">Editar comición interna</h2>
+            <div class="row justify-content-between mt-3 animated fadeIn">
+                <div class="col col-auto">
+                    <h2 class="blued mb-0">Editar comisión interna</h2>
+                </div>
+                <div class="col col-auto">
+                    <button type="button" class="btn btnColor" data-toggle="modal" data-target="#eliminarModal">
+                        Eliminar
+                    </button>
                 </div>
             </div>
 
@@ -37,8 +42,17 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="secretario">Secretario:</label>
-                                    <input name="secretario" value="{{$interna->secretario}}" type="text" class="form-control" id="secretario" aria-describedby="secretario" placeholder="Secretario/a...">
+                                    <label for="secretario_id">Secretaria/o:</label>
+                                    <select name="secretario_id" class="form-control" id="secretario_id">
+                                        <option value="{{null}}">sin definir</option>
+                                        @foreach ($empleados as $empleado)
+                                            <option value="{{$empleado->id}}"
+                                            @if ($interna->secretario_id == $empleado->id)
+                                            selected    
+                                            @endif
+                                            >{{$empleado->apellido}} {{$empleado->nombre}}</option>  
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="presidente_id">Presidente:</label>
@@ -107,11 +121,33 @@
                 </div>
                 </div>
             </div>
-
-
-        
-
+    
     </div>
+
+<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="eliminarModalLabel">Aviso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ¿Esta seguro de que desea eliminar este registro?
+        </div>
+        <div class="modal-footer">
+            <form action="/internas/{{ $interna->id}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+            <button type="button" class="btn btnColor" data-dismiss="modal">Volver</button>
+        </div>
+        </div>
+    </div>
+</div>
+
 @endauth
 
 

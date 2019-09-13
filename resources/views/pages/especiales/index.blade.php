@@ -12,7 +12,7 @@
             
             <div class="row justify-content-between align-items-center mb-0 animated fadeIn fast">
                 <div class="col col-auto mt-3">
-                    <h2 class="blued mb-0">Comiciones especiales</h2>
+                    <h2 class="blued mb-0">Comisiones especiales</h2>
                 </div>
                 <div class="col col-auto mt-3 text-right">
                     <a class="btn btn-sm btnColor" data-toggle="collapse" href="#collapseAgregar">Agregar</a>
@@ -30,7 +30,7 @@
 
                     <div class="row">
                         <div class="col mb-2">
-                            <h4 class="mb-0">Nueva comición especial</h4>
+                            <h4 class="mb-0">Nueva comisión especial</h4>
                         </div>
                     </div>
 

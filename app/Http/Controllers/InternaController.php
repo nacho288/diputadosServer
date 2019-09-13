@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Empleado;
 use App\Interna;
 use Illuminate\Http\Request;
 use App\Traits\FileOrNull;
@@ -18,7 +19,10 @@ class InternaController extends Controller
      */
     public function index()
     {
-        return view('pages.internas.index', ['internas' => Interna::orderBy('nombre', 'asc')->get()]);
+        return view('pages.internas.index', 
+            ['internas' => Interna::orderBy('nombre', 'asc')->get(), 
+            'empleados' => Empleado::all()->sortBy("apellido")]
+        );
     }
 
     /**
@@ -71,7 +75,7 @@ class InternaController extends Controller
      */
     public function edit(Interna $interna)
     {
-        return view('pages.internas.edit')->with('interna', $interna);
+        return view('pages.internas.edit')->with(['interna' => $interna, 'empleados' => Empleado::all()->sortBy("apellido")]);
     }
 
     /**
@@ -106,6 +110,8 @@ class InternaController extends Controller
      */
     public function destroy(Interna $interna)
     {
-        //
+        $interna->diputados()->detach();
+        $interna->delete();
+        return view('pages.internas.result');
     }
 }

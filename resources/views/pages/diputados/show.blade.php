@@ -70,7 +70,7 @@
                             <a class="nav-link blued" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blued" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Secretario/a</a>
+                            <a class="nav-link blued" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Secretaria/o</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blued" id="bloques-tab" data-toggle="tab" href="#bloques" role="tab" aria-controls="bloques" aria-selected="false">Bloques</a>
@@ -182,25 +182,25 @@
                                 
                                 <div class="row">
                                     <div class="col mt-3 mb-3">
-                                        <h4 class="blued mb-0">Datos de secretario/a</h4>
+                                        <h4 class="blued mb-0">Datos de secretaria/o</h4>
                                     </div>
                                 </div>
                                 
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                        <td>Secretario/a:</td>
+                                        <td>Secretaria/o:</td>
                                         <td>{{  $diputado->secretaria }}</td>
                                         </tr>
-                                        <td>Teléfono particular secretario/a:</td>
+                                        <td>Teléfono particular secretaria/o:</td>
                                         <td>{{  $diputado->telefono_particular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Teléfono celular secretario/a:</td>
+                                        <td>Teléfono celular secretaria/o:</td>
                                         <td>{{  $diputado->telefono_celular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Email secretario/a:</td>
+                                        <td>Email secretaria/o:</td>
                                         <td>{{  $diputado->email_secretaria }}</td>
                                         </tr>
                                     </tbody>
