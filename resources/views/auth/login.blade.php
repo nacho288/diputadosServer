@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('content')
-<div class="row my-md-5"></div><div class="row my-md-5"></div><div class="row my-md-5"></div>
+<div class="row my-xl-3"></div><div class="row my-lg-5"></div><div class="row my-md-5"></div>
 
 <div class="row justify-content-center mt-5 animated fadeIn">
 
