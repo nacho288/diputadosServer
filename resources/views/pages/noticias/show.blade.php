@@ -90,10 +90,10 @@
                 <div class="col-12 col-md-4">
                     <ul class="m-0 listText">
                         <li>
-                            <b>inicia en: </b>{{$noticia->desde}}
+                            <b>Inicia en: </b>{{$noticia->desde}}
                         </li>
                         <li>
-                            <b>finaliza en: </b>{{$noticia->hasta}}
+                            <b>Finaliza en: </b>{{$noticia->hasta}}
                         </li>
                     </ul>
                 </div>

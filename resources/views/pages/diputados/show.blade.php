@@ -97,23 +97,23 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                        <td class="font-weight-bold">nombre:</td>
+                                        <td class="font-weight-bold">Nombre:</td>
                                         <td>{{ $diputado->nombre}}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">apellido:</td>
+                                        <td class="font-weight-bold">Apellido:</td>
                                         <td>{{  $diputado->apellido }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">dni:</td>
+                                        <td class="font-weight-bold">Dni:</td>
                                         <td>{{  $diputado->dni  }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">fecha naciminento:</td>
+                                        <td class="font-weight-bold">Fecha naciminento:</td>
                                         <td>{{  $diputado->fecha_nacimiento }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">estado civil:</td>
+                                        <td class="font-weight-bold">Estado civil:</td>
                                         <td>{{  $diputado->estado_civil }}</td>
                                         </tr>
                                         <tr>
@@ -121,19 +121,19 @@
                                         <td>{{  $diputado->conyugue }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">profesion:</td>
+                                        <td class="font-weight-bold">Profesión:</td>
                                         <td>{{  $diputado->profesion }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">localidad:</td>
+                                        <td class="font-weight-bold">Localidad:</td>
                                         <td>{{  $diputado->localidad }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">departamento:</td>
+                                        <td class="font-weight-bold">Departamento:</td>
                                         <td>{{  $diputado->departamento }}</td>
                                         </tr>
                                         <tr>
-                                        <td class="font-weight-bold">domicilio:</td>
+                                        <td class="font-weight-bold">Domicilio:</td>
                                         <td>{{  $diputado->domicilio }}</td>
                                         </tr>
                                         <tr>
@@ -159,15 +159,15 @@
                                     <tbody>
 
                                         <tr>
-                                        <td>telefono particular:</td>
+                                        <td class="font-weight-bold">Teléfono particular:</td>
                                         <td>{{  $diputado->telefono_particular }}</td>
                                         </tr>
                                         <tr>
-                                        <td>telefono celular:</td>
+                                        <td class="font-weight-bold">Teléfono celular:</td>
                                         <td>{{  $diputado->telefono_celular }}</td>
                                         </tr>
                                         <tr>
-                                        <td>E-mail:</td>
+                                        <td class="font-weight-bold">E-mail:</td>
                                         <td>{{  $diputado->email }}</td>
                                         </tr>    
 
@@ -189,18 +189,18 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                        <td>Secretaria/o:</td>
+                                        <td class="font-weight-bold">Secretaria/o:</td>
                                         <td>{{  $diputado->secretaria }}</td>
                                         </tr>
-                                        <td>Teléfono particular secretaria/o:</td>
+                                        <td class="font-weight-bold">Teléfono particular secretaria/o:</td>
                                         <td>{{  $diputado->telefono_particular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Teléfono celular secretaria/o:</td>
+                                        <td class="font-weight-bold">Teléfono celular secretaria/o:</td>
                                         <td>{{  $diputado->telefono_celular_secretaria }}</td>
                                         </tr>
                                         <tr>
-                                        <td>Email secretaria/o:</td>
+                                        <td class="font-weight-bold">Email secretaria/o:</td>
                                         <td>{{  $diputado->email_secretaria }}</td>
                                         </tr>
                                     </tbody>

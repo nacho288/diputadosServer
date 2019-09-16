@@ -91,10 +91,10 @@
                 <div class="col-12 col-md-4">
                     <ul class="m-0 listText">
                         <li>
-                            <b>inicia en: </b>{{$evento->desde}}
+                            <b>Inicia en: </b>{{$evento->desde}}
                         </li>
                         <li>
-                            <b>finaliza en: </b>{{$evento->hasta}}
+                            <b>Finaliza en: </b>{{$evento->hasta}}
                         </li>
                     </ul>
                 </div>
