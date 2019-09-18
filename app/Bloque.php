@@ -12,4 +12,9 @@ class Bloque extends Model
     {
         return $this->hasMany(Subbloque::class);
     }
+
+    public function diputados()
+    {
+        return $this->hasManyThrough(Diputado::class, Subbloque::class);
+    }
 }

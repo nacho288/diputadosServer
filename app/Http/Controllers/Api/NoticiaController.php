@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Noticia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
